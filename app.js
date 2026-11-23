@@ -34,6 +34,7 @@ try { cart = JSON.parse(localStorage.getItem('summit-selection') || '[]'); } cat
 
 function imagePath(piece, width){ return '/.netlify/images?url=%2F' + encodeURIComponent(piece.file) + '&w=' + (width || 960) + '&fm=webp&q=74'; }
 function setImage(img, file, width){ img.dataset.original = file; img.src = imagePath({file:file}, width); }
+function fallbackBrokenImages(){ document.querySelectorAll('img[data-original]').forEach(img => { if(img.complete && img.naturalWidth === 0){ const fallback = img.dataset.original; delete img.dataset.original; img.src = fallback; } }); }
 function whatsappUrl(message){ return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message); }
 function renderPieces(){
   const filtered = pieces.filter((piece) => {
@@ -185,3 +186,4 @@ document.querySelectorAll('.main-nav a').forEach(link => link.addEventListener('
 $('#year').textContent = new Date().getFullYear();
 renderPieces();
 renderCart();
+fallbackBrokenImages();
