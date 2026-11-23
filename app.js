@@ -31,10 +31,10 @@ let searchTerm = '';
 let restoreFocus = null;
 try { cart = JSON.parse(localStorage.getItem('summit-selection') || '[]'); } catch (_) { cart = []; }
 
-function imagePath(file, width){ return '/.netlify/images?url=%2F' + encodeURIComponent(file) + '&w=' + (width || 960) + '&fm=webp&q=74'; }
-function setImage(img, file, width){ img.dataset.original = file; img.src = imagePath(file, width); }
-function fallbackBrokenImages(){ document.querySelectorAll('img[data-original]').forEach(img => { if(img.complete && img.naturalWidth === 0){ const fallback = img.dataset.original; delete img.dataset.original; img.src = fallback; } }); }
-function titleOf(piece){ return piece.title || 'Piece ' + piece.id; }
+function imagePath(file, width){ return '/product-images/' + encodeURIComponent(file.replace(/\.png$/i,'.webp')); }
+function setImage(img, file, width){ img.src = imagePath(file, width); }
+function fallbackBrokenImages(){ /* Product imagery is served from locally processed, non-generative crops. */ }
+function titleOf(piece){ return piece.title || 'SC / ' + piece.id; }
 function priceOf(piece){ return piece.price ? '₦' + piece.price.toLocaleString('en-NG') : 'Price on enquiry'; }
 function toneOf(piece){ return ({neutral:'Soft neutral',dark:'Dark tone',colour:'Colour story'})[piece.tone] || 'Original collection'; }
 function whatsappUrl(message){ return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message); }
@@ -50,7 +50,7 @@ function renderPieces(){
   grid.innerHTML = filtered.map((piece) => (
     '<article class="product-card" data-piece="' + piece.id + '">' +
       '<div class="product-media" role="button" tabindex="0" data-open="' + piece.id + '" aria-label="View ' + escapeHtml(titleOf(piece)) + '">' +
-        '<img src="' + imagePath(piece.file,760) + '" data-original="' + piece.file + '" alt="Original Summit Collections garment photograph, ' + escapeHtml(titleOf(piece)) + '" loading="lazy" decoding="async">' +
+        '<img src="' + imagePath(piece.file,760) + '" alt="Garment photograph from The Summit Collections, ' + escapeHtml(titleOf(piece)) + '" loading="lazy" decoding="async">' +
         '<span class="product-number">SC / ' + piece.id + '</span>' +
         '<button class="quick-view" type="button" data-open="' + piece.id + '">View piece ↗</button>' +
       '</div>' +
@@ -80,7 +80,6 @@ function renderGallery(){
     button.setAttribute('aria-label','View image ' + (index+1));
     const img = document.createElement('img');
     img.src = imagePath(file,180);
-    img.dataset.original = file;
     img.alt = titleOf(activePiece) + ' view ' + (index+1);
     button.appendChild(img);
     thumbs.appendChild(button);
@@ -110,7 +109,7 @@ function openPiece(id){
   $('#dialogImage').alt = 'Original Summit Collections garment photograph, ' + titleOf(activePiece);
   $('#dialogTitle').textContent = titleOf(activePiece);
   $('#dialogCategory').textContent = 'THE COLLECTION · SC / ' + activePiece.id;
-  $('#dialogDescription').textContent = activePiece.title ? 'A listed piece from the original Summit Collections edit. Contact our team to confirm the current details.' : 'An original piece from the supplied Summit Collections edit. Ask our team for fabric, fit and styling details.';
+  $('#dialogDescription').textContent = 'A piece from The Summit Collections original edit. Contact our team to confirm fabric composition, embroidery details, garment length, fit guidance and current availability before ordering.';
   $('#dialogPriceLabel').textContent = activePiece.price ? 'PRICE IN ORIGINAL POST' : 'PRICE';
   $('#dialogPrice').textContent = priceOf(activePiece);
   $('#dialogSize').value = '';
@@ -140,7 +139,7 @@ function renderCart(){
     const piece = pieces.find(p => p.id === item.id);
     if(!piece) return '';
     return '<div class="bag-line">' +
-      '<img src="' + imagePath(piece.file,260) + '" data-original="' + piece.file + '" alt="' + escapeHtml(titleOf(piece)) + '" loading="lazy">' +
+      '<img src="' + imagePath(piece.file,260) + '" alt="' + escapeHtml(titleOf(piece)) + '" loading="lazy">' +
       '<div><h3>' + escapeHtml(titleOf(piece)) + '</h3><p>' + (item.size ? 'Preferred size: ' + escapeHtml(item.size) : 'Size to be confirmed') + '</p><div class="line-qty">Qty ' + item.qty + '</div></div>' +
       '<button type="button" data-remove="' + piece.id + '" data-size="' + escapeHtml(item.size) + '">Remove</button>' +
     '</div>';
@@ -185,7 +184,7 @@ function setFilter(filter){
 }
 document.addEventListener('error',(event) => {
   const img = event.target;
-  if(img && img.tagName === 'IMG' && img.dataset.original){ const fallback = img.dataset.original; delete img.dataset.original; img.src = fallback; }
+  if(img && img.tagName === 'IMG' && img.src.includes('/product-images/')) img.classList.add('image-unavailable');
 },true);
 document.addEventListener('click',(event) => {
   const galleryButton = event.target.closest('[data-gallery-index]');

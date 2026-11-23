@@ -29,3 +29,10 @@ IMG_3977.png is a collection/profile collage and is used as editorial imagery ra
 - No stock status is inferred from the original posts, including posts marked Sold.
 - Size chips reproduce only the legible sizes in the source screenshots. They do not imply current availability.
 - The selection bag creates a WhatsApp enquiry. It does not process payment, reserve stock, calculate a payable total, or create an order in a backend.
+
+## Product image preparation (23 November 2026)
+- The 20 original repository PNG files remain unchanged and are retained as source evidence.
+- Each product-facing WebP is a conventional, non-generative crop of the central Instagram media area, trimming the account header and post-caption/action interface bands. No AI reconstruction, generative fill, garment recolouring, embroidery retouching, or invented camera angle was used.
+- The crops are standardised to 828 × 1035 (4:5) and served locally from `product-images/` for consistent responsive rendering.
+- This removes most surrounding social interface from the presentation, but it is not a substitute for original camera photographs or a human retoucher's pixel-level masking. If a social overlay is embedded inside the photograph itself, it may remain and should be reviewed before final client handoff.
+- Product names remain source-grounded: only names visible in the supplied caption are used. Other products are identified by their SC catalogue reference, not invented names.
