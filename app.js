@@ -196,7 +196,7 @@ document.addEventListener('click',(event) => {
     document.querySelectorAll('.dialog-thumb').forEach((button,index)=>button.classList.toggle('is-active',index===activeGalleryIndex));
     return;
   }
-  const sizeButton = event.target.closest('[data-size]');
+  const sizeButton = event.target.closest('.size-chip[data-size]');
   if(sizeButton && activePiece){
     $('#dialogSize').value = sizeButton.dataset.size;
     document.querySelectorAll('.size-chip').forEach(button=>button.classList.toggle('is-selected',button===sizeButton));
@@ -205,7 +205,7 @@ document.addEventListener('click',(event) => {
   const open = event.target.closest('[data-open]');
   if(open){ event.preventDefault(); openPiece(open.dataset.open); return; }
   const remove = event.target.closest('[data-remove]');
-  if(remove){ cart = cart.filter(item => !(item.id === remove.dataset.remove && item.size === remove.dataset.removeSize)); persistCart(); }
+  if(remove){ cart = cart.filter(item => !(item.id === remove.dataset.remove && item.size === remove.dataset.size)); persistCart(); }
 });
 document.addEventListener('keydown',(event) => {
   const open = event.target.closest('[data-open]');
