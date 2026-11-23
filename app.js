@@ -49,11 +49,11 @@ function renderPieces(){
   $('#pieceCount').textContent = filtered.length;
   grid.innerHTML = filtered.map((piece) => (
     '<article class="product-card" data-piece="' + piece.id + '">' +
-      '<div class="product-media" role="button" tabindex="0" data-open="' + piece.id + '" aria-label="View ' + escapeHtml(titleOf(piece)) + '">' +
+      '<button type="button" class="product-media" data-open="' + piece.id + '" aria-label="View ' + escapeHtml(titleOf(piece)) + '">' +
         '<img src="' + imagePath(piece.file,760) + '" alt="Garment photograph from The Summit Collections, ' + escapeHtml(titleOf(piece)) + '" loading="lazy" decoding="async">' +
         '<span class="product-number">SC / ' + piece.id + '</span>' +
-        '<button class="quick-view" type="button" data-open="' + piece.id + '">View piece ↗</button>' +
-      '</div>' +
+        '<span class="quick-view" aria-hidden="true">View piece ↗</span>' +
+      '</button>' +
       '<div class="product-info"><div><h3>' + escapeHtml(titleOf(piece)) + '</h3><p>' + escapeHtml(piece.colourLabel || toneOf(piece)) + (piece.gallery && piece.gallery.length ? ' · ' + (piece.gallery.length+1) + ' views' : '') + '</p></div><span class="product-price">' + priceOf(piece) + (piece.price ? '<small>Listed price*</small>' : '') + '</span></div>' +
     '</article>'
   )).join('') || '<p class="empty-results">No pieces match that search. Try another number or filter.</p>';
@@ -207,8 +207,6 @@ document.addEventListener('click',(event) => {
   if(remove){ cart = cart.filter(item => !(item.id === remove.dataset.remove && item.size === remove.dataset.size)); persistCart(); }
 });
 document.addEventListener('keydown',(event) => {
-  const open = event.target.closest('[data-open]');
-  if(open && (event.key === 'Enter' || event.key === ' ')){ event.preventDefault(); openPiece(open.dataset.open); }
   if((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k'){ event.preventDefault(); $('#productSearch').focus(); }
 });
 document.querySelectorAll('.filter-button').forEach(button=>button.addEventListener('click',()=>setFilter(button.dataset.filter)));
