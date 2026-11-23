@@ -8,7 +8,7 @@ const pieces = [
   {id:'06',file:'IMG_3985.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
   {id:'07',file:'IMG_3986.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
   {id:'08',file:'IMG_3987.png',tone:'colour',price:null,sizes:[]},
-  {id:'09',file:'IMG_3988.png',tone:'colour',title:'Yasmine',price:480000,sizes:['58','60','62']},
+  {id:'09',file:'IMG_3988.png',tone:'colour',price:480000,sizes:['58','60','62']},
   {id:'10',file:'IMG_3989.png',gallery:['IMG_3990.png'],tone:'colour',title:'Closed Abaya',price:65000,sizes:['54','56','58','60','62']},
   {id:'11',file:'IMG_3991.png',tone:'colour',price:165000,sizes:[]},
   {id:'12',file:'IMG_3992.png',tone:'dark',price:165000,sizes:['54','56']},
@@ -205,7 +205,7 @@ document.addEventListener('click',(event) => {
   const open = event.target.closest('[data-open]');
   if(open){ event.preventDefault(); openPiece(open.dataset.open); return; }
   const remove = event.target.closest('[data-remove]');
-  if(remove){ cart = cart.filter(item => !(item.id === remove.dataset.remove && item.size === remove.dataset.size)); persistCart(); }
+  if(remove){ cart = cart.filter(item => !(item.id === remove.dataset.remove && item.size === remove.dataset.removeSize)); persistCart(); }
 });
 document.addEventListener('keydown',(event) => {
   const open = event.target.closest('[data-open]');
