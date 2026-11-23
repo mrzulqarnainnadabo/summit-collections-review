@@ -1,22 +1,22 @@
 const WHATSAPP_NUMBER = '2347082812850';
 const pieces = [
-  {id:'01',file:'IMG_3979.png',tone:'neutral',title:"Eid Kid's Abayas",price:52500,sizes:['38','40','42','44','46','48','50']},
-  {id:'02',file:'IMG_3980.png',tone:'neutral',price:null,sizes:['58','60']},
-  {id:'03',file:'IMG_3981.png',gallery:['IMG_3982.png'],tone:'dark',price:70000,sizes:['56','58','60','62']},
-  {id:'04',file:'IMG_3983.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
-  {id:'05',file:'IMG_3984.png',tone:'neutral',price:70000,sizes:['56','58','60','62']},
-  {id:'06',file:'IMG_3985.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
-  {id:'07',file:'IMG_3986.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
+  {id:'01',file:'IMG_3979.png',tone:'neutral',title:"Eid Kid's Abayas",price:null,sizes:[]},
+  {id:'02',file:'IMG_3980.png',tone:'neutral',price:null,sizes:[]},
+  {id:'03',file:'IMG_3981.png',gallery:['IMG_3982.png'],tone:'dark',price:null,sizes:[]},
+  {id:'04',file:'IMG_3983.png',tone:'colour',price:null,sizes:[]},
+  {id:'05',file:'IMG_3984.png',tone:'neutral',price:null,sizes:[]},
+  {id:'06',file:'IMG_3985.png',tone:'colour',price:null,sizes:[]},
+  {id:'07',file:'IMG_3986.png',tone:'colour',price:null,sizes:[]},
   {id:'08',file:'IMG_3987.png',tone:'colour',price:null,sizes:[]},
-  {id:'09',file:'IMG_3988.png',tone:'colour',price:480000,sizes:['58','60','62']},
-  {id:'10',file:'IMG_3989.png',gallery:['IMG_3990.png'],tone:'colour',title:'Closed Abaya',price:65000,sizes:['54','56','58','60','62']},
-  {id:'11',file:'IMG_3991.png',tone:'colour',price:165000,sizes:[]},
-  {id:'12',file:'IMG_3992.png',tone:'dark',price:165000,sizes:['54','56']},
+  {id:'09',file:'IMG_3988.png',tone:'colour',price:null,sizes:[]},
+  {id:'10',file:'IMG_3989.png',gallery:['IMG_3990.png'],tone:'colour',title:'Closed Abaya',price:null,sizes:[]},
+  {id:'11',file:'IMG_3991.png',tone:'colour',price:null,sizes:[]},
+  {id:'12',file:'IMG_3992.png',tone:'dark',price:null,sizes:[]},
   {id:'13',file:'IMG_3993.png',tone:'dark',price:null,sizes:[]},
-  {id:'14',file:'IMG_3994.png',tone:'colour',price:330000,sizes:['58','60','62']},
-  {id:'15',file:'IMG_3995.png',tone:'colour',price:330000,sizes:['58','60']},
-  {id:'16',file:'IMG_3996.png',tone:'colour',price:70000,sizes:['56','58','60','62']},
-  {id:'17',file:'IMG_3997.png',tone:'neutral',colourLabel:'Peach',price:null,sizes:['58']}
+  {id:'14',file:'IMG_3994.png',tone:'colour',price:null,sizes:[]},
+  {id:'15',file:'IMG_3995.png',tone:'colour',price:null,sizes:[]},
+  {id:'16',file:'IMG_3996.png',tone:'colour',price:null,sizes:[]},
+  {id:'17',file:'IMG_3997.png',tone:'neutral',colourLabel:'Peach',price:null,sizes:[]}
 ];
 const $ = (selector) => document.querySelector(selector);
 const grid = $('#productGrid');
@@ -35,7 +35,7 @@ function imagePath(file, width){ return '/product-images/' + encodeURIComponent(
 function setImage(img, file, width){ img.src = imagePath(file, width); }
 function fallbackBrokenImages(){ /* Product imagery is served from locally processed, non-generative crops. */ }
 function titleOf(piece){ return piece.title || 'SC / ' + piece.id; }
-function priceOf(piece){ return piece.price ? '₦' + piece.price.toLocaleString('en-NG') : 'Price on enquiry'; }
+function priceOf(piece){ return 'Enquire for current price'; }
 function toneOf(piece){ return ({neutral:'Soft neutral',dark:'Dark tone',colour:'Colour story'})[piece.tone] || 'Original collection'; }
 function whatsappUrl(message){ return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message); }
 function allImages(piece){ return [piece.file].concat(piece.gallery || []); }
@@ -54,7 +54,7 @@ function renderPieces(){
         '<span class="product-number">SC / ' + piece.id + '</span>' +
         '<span class="quick-view" aria-hidden="true">View piece ↗</span>' +
       '</button>' +
-      '<div class="product-info"><div><h3>' + escapeHtml(titleOf(piece)) + '</h3><p>' + escapeHtml(piece.colourLabel || toneOf(piece)) + (piece.gallery && piece.gallery.length ? ' · ' + (piece.gallery.length+1) + ' views' : '') + '</p></div><span class="product-price">' + priceOf(piece) + (piece.price ? '<small>Listed price*</small>' : '') + '</span></div>' +
+      '<div class="product-info"><div><h3>' + escapeHtml(titleOf(piece)) + '</h3><p>' + escapeHtml(piece.colourLabel || toneOf(piece)) + (piece.gallery && piece.gallery.length ? ' · ' + (piece.gallery.length+1) + ' views' : '') + '</p></div><span class="product-price">' + priceOf(piece) + '</span></div>' +
     '</article>'
   )).join('') || '<p class="empty-results">No pieces match that search. Try another number or filter.</p>';
   observeCards();
@@ -85,20 +85,6 @@ function renderGallery(){
     thumbs.appendChild(button);
   });
 }
-function renderSizeOptions(){
-  const wrap = $('#dialogSizes');
-  const list = $('#sizeOptions');
-  list.innerHTML = '';
-  wrap.hidden = !activePiece.sizes || !activePiece.sizes.length;
-  (activePiece.sizes || []).forEach(size => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'size-chip';
-    button.textContent = size;
-    button.dataset.size = size;
-    list.appendChild(button);
-  });
-}
 function openPiece(id){
   activePiece = pieces.find(piece => piece.id === id);
   if(!activePiece) return;
@@ -106,16 +92,15 @@ function openPiece(id){
   quantity = 1;
   activeGalleryIndex = 0;
   setImage($('#dialogImage'),activePiece.file,1200);
-  $('#dialogImage').alt = 'Original Summit Collections garment photograph, ' + titleOf(activePiece);
+  $('#dialogImage').alt = 'The Summit Collections garment, ' + titleOf(activePiece);
   $('#dialogTitle').textContent = titleOf(activePiece);
   $('#dialogCategory').textContent = 'THE COLLECTION · SC / ' + activePiece.id;
-  $('#dialogDescription').textContent = 'A piece from The Summit Collections original edit. Contact our team to confirm fabric composition, embroidery details, garment length, fit guidance and current availability before ordering.';
-  $('#dialogPriceLabel').textContent = activePiece.price ? 'PRICE IN ORIGINAL POST' : 'PRICE';
+  $('#dialogDescription').textContent = 'A considered piece from The Summit Collections. Contact our team for current details and personal sizing guidance.';
+  $('#dialogPriceLabel').textContent = 'CURRENT PRICE';
   $('#dialogPrice').textContent = priceOf(activePiece);
   $('#dialogSize').value = '';
   $('#dialogQty').textContent = quantity;
   renderGallery();
-  renderSizeOptions();
   $('#dialogEnquire').href = whatsappUrl('Hello The Summit Collections, I would like to enquire about ' + titleOf(activePiece) + ' (SC / ' + activePiece.id + '). Please confirm the current price, available sizes and availability.');
   if(typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
   fallbackBrokenImages();
@@ -168,7 +153,7 @@ function submitEnquiry(event){
   const location = $('#customerLocation').value.trim();
   const lines = cart.map(item => {
     const piece = pieces.find(p => p.id === item.id);
-    return '• ' + titleOf(piece) + ' (SC / ' + piece.id + ') — Qty ' + item.qty + ' — Preferred size: ' + (item.size || 'Please advise') + ' — Listed price: ' + priceOf(piece);
+    return '• ' + titleOf(piece) + ' (SC / ' + piece.id + ') — Qty ' + item.qty + ' — Preferred size: ' + (item.size || 'Please advise') + ' — Current price: to be confirmed';
   });
   const message = ['Hello The Summit Collections, I would like to place an order enquiry.','','Name: ' + name,'Delivery location: ' + location,'','My selection:',lines.join('\n'),'','Please confirm the current prices, available sizes, stock and delivery details before payment.'].join('\n');
   window.open(whatsappUrl(message),'_blank','noopener,noreferrer');
