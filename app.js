@@ -32,7 +32,8 @@ let searchTerm = '';
 let restoreFocus = null;
 try { cart = JSON.parse(localStorage.getItem('summit-selection') || '[]'); } catch (_) { cart = []; }
 
-function imagePath(piece){ return piece.file; }
+function imagePath(piece, width){ return '/.netlify/images?url=%2F' + encodeURIComponent(piece.file) + '&w=' + (width || 960) + '&fm=webp&q=74'; }
+function setImage(img, file, width){ img.dataset.original = file; img.src = imagePath({file:file}, width); }
 function whatsappUrl(message){ return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message); }
 function renderPieces(){
   const filtered = pieces.filter((piece) => {
@@ -44,7 +45,7 @@ function renderPieces(){
   grid.innerHTML = filtered.map((piece) => (
     '<article class="product-card" data-piece="' + piece.id + '">' +
       '<div class="product-media" role="button" tabindex="0" data-open="' + piece.id + '" aria-label="View Piece ' + piece.id + '">' +
-        '<img src="' + imagePath(piece) + '" alt="Original Summit Collections garment photograph, Piece ' + piece.id + '" loading="lazy">' +
+        '<img src="' + imagePath(piece, 760) + '" data-original="' + piece.file + '" alt="Original Summit Collections garment photograph, Piece ' + piece.id + '" loading="lazy" decoding="async">' +
         '<span class="product-number">SC / ' + piece.id + '</span>' +
         '<button class="quick-view" type="button" data-open="' + piece.id + '">View piece ↗</button>' +
       '</div>' +
@@ -68,7 +69,7 @@ function openPiece(id){
   if(!activePiece) return;
   restoreFocus = document.activeElement;
   quantity = 1;
-  $('#dialogImage').src = imagePath(activePiece);
+  setImage($('#dialogImage'), activePiece.file, 1200);
   $('#dialogImage').alt = 'Original Summit Collections garment photograph, Piece ' + activePiece.id;
   $('#dialogTitle').textContent = 'Piece ' + activePiece.id;
   $('#dialogCategory').textContent = 'THE COLLECTION · SC / ' + activePiece.id;
@@ -100,7 +101,7 @@ function renderCart(){
     const piece = pieces.find(p => p.id === item.id);
     if(!piece) return '';
     return '<div class="bag-line">' +
-      '<img src="' + imagePath(piece) + '" alt="Piece ' + piece.id + '">' +
+      '<img src="' + imagePath(piece, 260) + '" data-original="' + piece.file + '" alt="Piece ' + piece.id + '" loading="lazy">' +
       '<div><h3>Piece ' + piece.id + '</h3><p>' + (item.size ? 'Preferred size: ' + escapeHtml(item.size) : 'Size to be confirmed') + '</p><div class="line-qty">Qty ' + item.qty + '</div></div>' +
       '<button type="button" data-remove="' + item.id + '" data-size="' + escapeHtml(item.size) + '">Remove</button>' +
     '</div>';
@@ -149,6 +150,7 @@ function setFilter(filter){
   });
   renderPieces();
 }
+document.addEventListener('error', (event) => { const img = event.target; if(img && img.tagName === 'IMG' && img.dataset.original){ const fallback = img.dataset.original; delete img.dataset.original; img.src = fallback; } }, true);
 document.addEventListener('click', (event) => {
   const open = event.target.closest('[data-open]');
   if(open){ event.preventDefault(); openPiece(open.dataset.open); return; }
