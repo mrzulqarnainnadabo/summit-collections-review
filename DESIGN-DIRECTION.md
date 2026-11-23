@@ -3,10 +3,10 @@
 ## Audit findings
 - The production site remains untouched.
 - The live homepage has placeholder hero/collection imagery and sample product rows.
-- The review repository contains 19 individual product screenshots (IMG_3979.png–IMG_3997.png) plus IMG_3977.png, a collection/profile collage.
+- The review repository contains 19 original product screenshots (IMG_3979.png–IMG_3997.png) plus IMG_3977.png, a collection/profile collage. Two repeated carousel pairs are grouped, giving 17 product entries.
 - The repository's original HTML referenced missing assets/styles/scripts; the Netlify review project has no published deploy.
 - The founder's SC logo is preserved from the original brand asset at https://the-summit-collections.netlify.app/assets/summit-logo.png. It is used as supplied, not redrawn.
-- Product prices, official product names, stock, sizing, care and delivery policy are not reliably available as structured catalogue data in the repository. The interface therefore uses numbered references and explicitly requests confirmation rather than fabricating details.
+- Original post captions were read from the supplied screenshots. The interface shows only listed prices and size ranges that could be read, labels them as original-post information, and asks the team to confirm current prices and availability. Official names are used only where present in the captions; all other products retain numbered references. No live stock, care or delivery policy is invented.
 
 ## Three directions considered
 1. Midnight Atelier — near-black, antique gold and burgundy; cinematic, but risks making the garments recede.
