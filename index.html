@@ -63,7 +63,7 @@
       </div>
       <div class="collection-controls">
         <div class="filter-list" role="group" aria-label="Filter pieces by visual tone">
-          <button class="filter-button is-active" data-filter="all" aria-pressed="true">All pieces <span id="pieceCount">19</span></button>
+          <button class="filter-button is-active" data-filter="all" aria-pressed="true">All pieces <span id="pieceCount">17</span></button>
           <button class="filter-button" data-filter="neutral" aria-pressed="false">Soft neutrals</button>
           <button class="filter-button" data-filter="dark" aria-pressed="false">Dark tones</button>
           <button class="filter-button" data-filter="colour" aria-pressed="false">Colour stories</button>
@@ -71,7 +71,7 @@
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="productSearch" type="search" placeholder="Find a piece" aria-label="Search pieces by number"><kbd>⌘ K</kbd></label>
       </div>
       <div class="product-grid" id="productGrid" aria-live="polite"></div>
-      <div class="collection-foot"><span>THE SUMMIT COLLECTIONS · ABUJA</span><span>Prices and availability are confirmed by our team.</span></div>
+      <div class="collection-foot"><span>THE SUMMIT COLLECTIONS · ABUJA</span><span>Listed prices and sizes are from the supplied posts; confirm current details with our team.</span></div>
     </section>
 
     <section class="editorial-feature">
@@ -121,18 +121,19 @@
 
   <dialog class="product-dialog" id="productDialog" aria-labelledby="dialogTitle">
     <button class="dialog-close" id="dialogClose" aria-label="Close product details">×</button>
-    <div class="dialog-image"><img id="dialogImage" src="" alt=""></div>
+    <div class="dialog-image"><img id="dialogImage" src="" alt=""><div class="dialog-thumbs" id="dialogThumbs" hidden></div></div>
     <div class="dialog-content">
       <p class="eyebrow dark-eyebrow" id="dialogCategory">THE COLLECTION · SC</p>
       <h2 id="dialogTitle">Piece 01</h2>
       <p class="dialog-description">A piece from the original Summit Collections edit. Contact our team for confirmed product details.</p>
-      <div class="detail-line"><span>PRICE</span><strong>On enquiry</strong></div>
+      <div class="detail-line"><span id="dialogPriceLabel">PRICE IN ORIGINAL POST</span><strong id="dialogPrice">On enquiry</strong></div>
       <div class="detail-line"><span>AVAILABILITY</span><strong>Confirm with our team</strong></div>
+      <div class="sizes-listed" id="dialogSizes" hidden><span>SIZES LISTED IN ORIGINAL POST</span><div class="size-options" id="sizeOptions"></div></div>
       <label class="size-field">Preferred size or sizing question<input id="dialogSize" placeholder="Enter your size or ask for guidance" autocomplete="off"></label>
       <div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button type="button" id="qtyDown" aria-label="Decrease quantity">−</button><output id="dialogQty">1</output><button type="button" id="qtyUp" aria-label="Increase quantity">+</button></div></div>
       <button type="button" class="button button-dark full-button" id="dialogAdd">Add to selection <span>↗</span></button>
       <a class="text-link dialog-enquire" id="dialogEnquire" href="#" target="_blank" rel="noreferrer">Enquire about this piece ↗</a>
-      <p class="fine-print">Product names, prices, sizing and availability are not yet connected to a live catalogue. Please confirm these details with the team before ordering.</p>
+      <p class="fine-print">Listed prices and sizes come from the supplied original posts. Confirm current pricing, stock and delivery details with the team before ordering.</p>
     </div>
   </dialog>
   <script src="app.js"></script>
