@@ -23,3 +23,16 @@ jobs:
           node-version: 20
       - name: Verify catalogue provenance and publication rules
         run: node scripts/verify-catalogue.mjs
+
+  verify-release-assets:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Require all published product images before release review
+        run: node scripts/verify-catalogue.mjs --require-assets
