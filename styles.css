@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600&display=swap');
 :root{--ink:#171411;--paper:#f3eee6;--cream:#e9dfd1;--white:#faf8f4;--gold:#b89b70;--wine:#67434a;--muted:#81776d;--line:rgba(35,29,24,.18);--serif:'Italiana',Georgia,serif;--sans:'Manrope',Arial,sans-serif;--ease:cubic-bezier(.76,0,.24,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font:13px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}body.lock{overflow:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}img{display:block;max-width:100%}
 .progress{position:fixed;z-index:60;top:0;left:0;width:100%;height:2px}.progress span{display:block;width:0;height:100%;background:var(--gold)}
@@ -32,6 +31,14 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 .product-dialog .dialog-image>img{object-fit:contain}
 @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 14px}.collection{padding-inline:5%}}
 @media(max-width:560px){.product-grid{gap:26px 10px}.product-meta h3{font-size:22px}.product-meta p{font-size:7px}.product-visual{aspect-ratio:2/3}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-\n.product-price{display:block;margin-top:7px;color:#8e765c;font-size:10px;letter-spacing:.08em}.detail-price{font:22px var(--serif);color:var(--wine);margin:12px 0}.product-meta{align-items:flex-start}\n
+
+.product-price{display:block;margin-top:7px;color:#8e765c;font-size:10px;letter-spacing:.08em}.detail-price{font:22px var(--serif);color:var(--wine);margin:12px 0}.product-meta{align-items:flex-start}
+
 .price-note{font-size:10px;line-height:1.6;color:#81776d;margin:-5px 0 16px}.detail-price{margin-bottom:8px}
+
+/* Keyboard access and clear focus states */
+.skip-link{position:fixed;z-index:100;top:10px;left:10px;padding:12px 16px;background:var(--ink);color:var(--paper);transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,[tabindex]):focus-visible{outline:2px solid var(--wine);outline-offset:4px}
+.mobile-nav[inert],.selection-drawer[inert]{pointer-events:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
