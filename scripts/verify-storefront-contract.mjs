@@ -32,6 +32,7 @@ for (const product of catalogue.products.filter((item) => item.status !== 'provi
   assert.ok(product.assets.length, `${product.id} has no asset reference.`);
 }
 assert.match(html, /<main id="top"/, 'Skip link destination must exist.');
+assert.match(html, /class="brand" href="#top" aria-label="The Summit Collections home"><img src="\/assets\/summit-logo\.webp" alt=""/, 'Header logo must not duplicate its accessible link name.');
 assert.match(html, /id="mobileNav"[^>]*inert/, 'Mobile navigation must start inert.');
 assert.match(html, /id="drawer"[^>]*aria-hidden="true"[^>]*inert/, 'Selection drawer must start hidden and inert.');
 assert.match(html, /id="bagOpen"[^>]*aria-controls="drawer"[^>]*aria-expanded="false"/, 'Selection trigger must expose its collapsed state.');
