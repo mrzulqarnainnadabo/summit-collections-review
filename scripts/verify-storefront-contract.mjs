@@ -54,6 +54,7 @@ assert.match(js, /if\(e\.key==='Tab'\)/, 'Open enquiry drawer must retain its ke
 assert.match(js, /drawerReturnFocus\?\.focus/, 'Closing enquiry drawer must restore keyboard focus.');
 assert.match(js, /mobile\.inert=!open/, 'Closed mobile navigation must be removed from keyboard interaction.');
 assert.match(js, /nextControl\?\.focus\(\)/, 'Quantity changes must preserve keyboard focus after the enquiry bag re-renders.');
+assert.match(js, /controls\.find\(el=>el\.dataset\.qty===action&&!el\.disabled\)\|\|controls\.find\(el=>!el\.disabled\)/, 'Quantity changes must move focus to an enabled control when the active action becomes disabled.');
 assert.match(js, /\(remaining\[Math\.min\(oldIndex,remaining\.length-1\)\]\|\|\$\('#bagClose'\)\)\.focus\(\)/, 'Removing an item must move keyboard focus to the next useful control.');
 assert.match(js, /\$\$\('\[data-filter\]'\)\.forEach\(x=>/, 'Filter updates must iterate over all filter controls.');
 assert.match(js, /\$\$\('#mobileNav a'\)\.forEach\(a=>/, 'Mobile navigation must bind every navigation link.');
