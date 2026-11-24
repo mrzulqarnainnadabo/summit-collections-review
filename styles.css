@@ -69,3 +69,33 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
     clip-path: none !important;
   }
 }
+
+/* Legibility pass: retain the editorial scale while improving reading comfort. */
+@media(min-width:681px){
+  body{font-size:14px}
+  .eyebrow{font-size:9px}
+  .hero-description{font-size:13px}
+  .signature-copy p,.feature-copy>p:not(.eyebrow){font-size:12px}
+  .collection-intro{font-size:12px}
+  .filters button{font-size:9px}
+  .search input{font-size:10px}
+  .product-meta p{font-size:9px}
+  .collection-end{font-size:8px}
+}
+@media(max-width:680px){
+  body{font-size:14px}
+  .announcement{font-size:8px}
+  .brand span{font-size:8px}
+  .bag-trigger{font-size:9px}
+  .eyebrow{font-size:8px}
+  .button{font-size:8px}
+  .hero-description{font-size:12px}
+  .signature-copy p,.feature-copy>p:not(.eyebrow),.visit-copy>p:not(.eyebrow){font-size:12px}
+  .collection-intro{font-size:12px}
+  .filters button{font-size:9px}
+  .search input{font-size:10px}
+  .product-meta p{font-size:8px}
+  .product-price-note,.name-status{font-size:7.5px}
+  .collection-end{font-size:7px}
+  .footer-links{font-size:9px}
+}
