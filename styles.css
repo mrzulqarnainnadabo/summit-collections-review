@@ -113,3 +113,34 @@ input::placeholder{color:#62584e;opacity:1}
   .drawer-head button{width:44px;height:44px;display:grid;place-items:center}
   .dialog-close{width:48px;height:48px;min-width:48px;min-height:48px}
 }
+
+
+/* Collection refinement — give each founder-supplied piece room to read. */
+@media(min-width:901px){
+  .collection{padding-inline:8%}
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:54px 24px}
+  .product-meta{padding-top:16px}
+  .product-meta h3{font-size:29px}
+  .product-meta p{font-size:10px;line-height:1.6}
+  .product-price{font-size:12px}
+  .product-price-note,.name-status{font-size:8px}
+}
+@media(min-width:561px) and (max-width:900px){
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 18px}
+  .product-meta h3{font-size:27px}
+  .product-meta p{font-size:10px}
+}
+@media(max-width:680px){
+  .collection{padding:76px 6% 72px}
+  .collection-head h2{font-size:clamp(66px,15vw,88px)}
+  .collection-tools{margin:30px 0 24px}
+  .filters{gap:8px 14px}
+  .product-grid{gap:34px 12px}
+  .product-visual{aspect-ratio:3/4}
+  .product-meta{padding-top:12px;gap:6px}
+  .product-meta h3{font-size:clamp(21px,5.8vw,25px);line-height:1.04}
+  .product-meta p{font-size:9px;line-height:1.55}
+  .product-price{font-size:11px}
+  .product-price-note,.name-status{font-size:8px;line-height:1.5}
+  .product-number,.view-flag{font-size:8px}
+}
