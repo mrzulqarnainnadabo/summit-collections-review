@@ -1,0 +1,25 @@
+name: Catalogue integrity
+
+on:
+  push:
+    branches:
+      - feat/founder-catalogue-foundation
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify-catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify catalogue provenance and publication rules
+        run: node scripts/verify-catalogue.mjs
