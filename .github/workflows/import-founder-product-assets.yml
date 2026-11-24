@@ -1,6 +1,7 @@
 name: Import founder product assets
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feat/founder-catalogue-foundation
@@ -64,7 +65,7 @@ jobs:
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+users.noreply.github.com"
           git add products/sc-*.webp
           git rm assets/summit-founder-review-assets.zip
           if git diff --cached --quiet; then
