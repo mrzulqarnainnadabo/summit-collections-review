@@ -144,3 +144,27 @@ input::placeholder{color:#62584e;opacity:1}
   .product-price-note,.name-status{font-size:8px;line-height:1.5}
   .product-number,.view-flag{font-size:8px}
 }
+
+
+/* Product detail refinement — clearer reading hierarchy and a calmer mobile composition. */
+.product-dialog .dialog-copy{padding:52px 44px}
+.product-dialog .dialog-copy h2{font-size:clamp(38px,4vw,52px);line-height:1.04}
+.product-dialog .dialog-copy>p:not(.eyebrow){font-size:13px;line-height:1.7;color:#62584e}
+.product-dialog .dialog-copy .eyebrow{font-size:9px}
+.product-dialog #detailView{font-size:9px;line-height:1.5;letter-spacing:.08em}
+.product-dialog .detail-price{font-size:26px}
+.product-dialog .price-note{font-size:12px;line-height:1.6}
+.product-dialog .size-note{font-size:10px;letter-spacing:.08em;margin:22px 0}
+.product-dialog .dialog-copy label{display:block;font-size:11px;line-height:1.5;color:#62584e}
+.product-dialog .dialog-copy label input{display:block;width:100%;min-height:48px;margin-top:8px;padding:0 12px;border:1px solid var(--line);background:#fffdfa;color:var(--ink);font:13px var(--sans)}
+.product-dialog .dialog-close{width:48px;height:48px;min-width:48px;min-height:48px;display:grid;place-items:center;border:1px solid #c9bca9;border-radius:50%;background:#f7f1e8;color:var(--ink);font-size:25px;line-height:1}
+.product-dialog .dialog-image>img{object-fit:contain;object-position:center center}
+@media(max-width:680px){
+  .product-dialog{width:calc(100% - 20px);max-height:94dvh}
+  .product-dialog .dialog-image{height:clamp(260px,43dvh,360px);min-height:0}
+  .product-dialog .dialog-copy{padding:25px 22px 28px}
+  .product-dialog .dialog-copy h2{font-size:40px;margin:13px 0}
+  .product-dialog .dialog-copy>p:not(.eyebrow){font-size:13px;line-height:1.65}
+  .product-dialog .detail-price{font-size:24px}
+  .product-dialog .dialog-copy .button{min-height:50px}
+}
