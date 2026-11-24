@@ -16,6 +16,7 @@ test.beforeEach(async ({ page }) => {
 
 test('storefront and product dialog meet WCAG A/AA accessibility checks', async ({ page }) => {
   await page.locator('#prelude.done').waitFor({ timeout: 3000 });
+  await page.addStyleTag({ content: '*,*::before,*::after{animation:none!important;transition:none!important}' });
   await page.evaluate(async () => {
     document.documentElement.style.scrollBehavior = 'auto';
     const step = Math.max(320, window.innerHeight * 0.7);
