@@ -144,6 +144,44 @@ test('WhatsApp enquiry opens with selected item and customer details', async ({ 
   expect(message).toContain('Abuja');
 });
 
+test('enquiry drawer keeps product information and form controls readable on mobile and desktop', async ({ page }) => {
+  for (const viewport of widths) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.locator('.product-visual[data-id="SC-002"]').click();
+    await page.locator('#add').click();
+    const layout = await page.locator('#drawer').evaluate(node => {
+      const rect = node.getBoundingClientRect();
+      const copy = node.querySelector('.drawer-bottom>p');
+      const label = node.querySelector('.drawer-bottom label');
+      const input = node.querySelector('.drawer-bottom input');
+      const quantity = node.querySelector('.quantity-control button');
+      const remove = node.querySelector('[data-remove]');
+      return {
+        left: rect.left, right: rect.right, viewport: document.documentElement.clientWidth,
+        copySize: parseFloat(getComputedStyle(copy).fontSize),
+        labelSize: parseFloat(getComputedStyle(label).fontSize),
+        inputSize: parseFloat(getComputedStyle(input).fontSize),
+        inputHeight: input.getBoundingClientRect().height,
+        quantityWidth: quantity.getBoundingClientRect().width,
+        quantityHeight: quantity.getBoundingClientRect().height,
+        removeWidth: remove.getBoundingClientRect().width,
+        removeHeight: remove.getBoundingClientRect().height,
+      };
+    });
+    expect(layout.left).toBeGreaterThanOrEqual(-1);
+    expect(layout.right).toBeLessThanOrEqual(layout.viewport + 1);
+    expect(layout.copySize).toBeGreaterThanOrEqual(12);
+    expect(layout.labelSize).toBeGreaterThanOrEqual(11);
+    expect(layout.inputSize).toBeGreaterThanOrEqual(16);
+    expect(layout.inputHeight).toBeGreaterThanOrEqual(48);
+    expect(layout.quantityWidth).toBeGreaterThanOrEqual(36);
+    expect(layout.quantityHeight).toBeGreaterThanOrEqual(36);
+    expect(layout.removeWidth).toBeGreaterThanOrEqual(44);
+    expect(layout.removeHeight).toBeGreaterThanOrEqual(44);
+    await page.locator('#bagClose').click();
+  }
+});
+
 test('mobile primary controls meet 44px touch-target dimensions', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const controls = page.locator('.filters button, #bagOpen, #menuOpen, .search input');
