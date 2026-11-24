@@ -37,5 +37,9 @@ assert.match(html, /id="drawer"[^>]*aria-hidden="true"[^>]*inert/, 'Selection dr
 assert.match(html, /id="bagOpen"[^>]*aria-controls="drawer"[^>]*aria-expanded="false"/, 'Selection trigger must expose its collapsed state.');
 assert.match(css, /:where\(a,button,input,\[tabindex\]\):focus-visible/, 'Visible keyboard focus styling is required.');
 assert.match(css, /prefers-reduced-motion:reduce/, 'Reduced-motion styling is required.');
+assert.match(js, /data-qty="increase"/, 'Enquiry selection must allow increasing item quantity.');
+assert.match(js, /data-qty="decrease"/, 'Enquiry selection must allow decreasing item quantity.');
+assert.match(js, /quantities\[id\]\|\|1/, 'Every selected item must retain a positive quantity.');
+assert.match(js, /' × '\+\(quantities\[id\]\|\|1\)/, 'WhatsApp enquiry must include each selected quantity.');
 
 console.log(`Storefront contract passed: ${idSet.size} unique IDs, required controls present, catalogue hooks and accessibility safeguards checked.`);
