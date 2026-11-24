@@ -77,11 +77,15 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
   const backView = page.locator('.product-card').filter({ has: page.locator('[data-id="SC-010"]') });
   await expect(backView).toContainText('BACK VIEW');
   await expect(backView).toContainText('Back view');
-  await expect(page.locator('.product-card').filter({ hasText: 'Yasmine' })).not.toContainText('WORKING DESCRIPTOR');
-  await expect(page.locator('.product-card').filter({ hasText: 'Turquoise Bloom' })).not.toContainText('WORKING DESCRIPTOR');
-  await expect(page.locator('.product-card').filter({ hasText: 'Lilac Border' })).not.toContainText('WORKING DESCRIPTOR');
-  await expect(page.locator('.product-card').filter({ hasText: 'Sage Lace' })).toContainText('WORKING DESCRIPTOR');
-  await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('.product-card').filter({ hasText: 'Yasmine' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(page.locator('.product-card').filter({ hasText: 'Turquoise Bloom' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(page.locator('.product-card').filter({ hasText: 'Lilac Border' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(page.locator('.product-card').filter({ hasText: 'Sage Lace' })).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await page.locator('.product-visual[data-id="SC-003"]').click();
+  await expect(page.locator('#detailView')).toContainText('Temporary descriptor · not founder-approved');
+  await expect(page.locator('#detailView')).toContainText('Front view');
+  await page.locator('#detailClose').click();
 });
 
 test('search and category filters update the collection', async ({ page }) => {
