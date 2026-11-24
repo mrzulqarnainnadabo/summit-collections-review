@@ -41,5 +41,10 @@ assert.match(js, /data-qty="increase"/, 'Enquiry selection must allow increasing
 assert.match(js, /data-qty="decrease"/, 'Enquiry selection must allow decreasing item quantity.');
 assert.match(js, /quantities\[id\]\|\|1/, 'Every selected item must retain a positive quantity.');
 assert.match(js, /' × '\+\(quantities\[id\]\|\|1\)/, 'WhatsApp enquiry must include each selected quantity.');
+assert.match(js, /setAttribute\('aria-label',`\$\{total\} selected \$\{total===1\?'unit':'units'\}`\)/, 'Selection count must have an accurate accessible label.');
+assert.match(html, /id="count" aria-live="polite" aria-atomic="true"/, 'Selection count changes must be announced to assistive technology.');
+assert.match(js, /if\(e\.key==='Tab'\)/, 'Open enquiry drawer must retain its keyboard focus trap.');
+assert.match(js, /drawerReturnFocus\?\.focus/, 'Closing enquiry drawer must restore keyboard focus.');
+assert.match(js, /mobile\.inert=!open/, 'Closed mobile navigation must be removed from keyboard interaction.');
 
 console.log(`Storefront contract passed: ${idSet.size} unique IDs, required controls present, catalogue hooks and accessibility safeguards checked.`);
