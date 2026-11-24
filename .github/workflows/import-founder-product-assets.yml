@@ -27,15 +27,38 @@ jobs:
           mkdir -p /tmp/summit-assets
           unzip -tq assets/summit-founder-review-assets.zip
           unzip -q assets/summit-founder-review-assets.zip -d /tmp/summit-assets
-          test -f /tmp/summit-assets/MANIFEST.json
-          mkdir -p products
-          for i in $(seq 1 14); do
-            id=$(printf '%03d' "$i")
-            file="/tmp/summit-assets/products/sc-${id}.webp"
-            test -s "$file"
-            cp "$file" "products/sc-${id}.webp"
-          done
-          test "$(find products -maxdepth 1 -name 'sc-*.webp' | wc -l)" -eq 14
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("/tmp/summit-assets")
+          manifest_path = root / "MANIFEST.json"
+          assert manifest_path.is_file(), "Asset manifest is missing"
+          manifest = json.loads(manifest_path.read_text())
+          products = manifest.get("products", [])
+          assert len(products) == 14, "Expected exactly 14 approved product derivatives"
+          expected = {f"SC-{i:03d}" for i in range(1, 15)}
+          assert {p.get("id") for p in products} == expected, "Manifest product IDs are incomplete or unexpected"
+          assert len({p.get("asset") for p in products}) == 14, "Manifest asset paths must be unique"
+
+          destination = Path("products")
+          destination.mkdir(exist_ok=True)
+          for product in products:
+              asset = product.get("asset", "")
+              assert asset == f"products/{product['id'].lower()}.webp", f"Unexpected asset path: {asset}"
+              source = root / asset
+              data = source.read_bytes()
+              assert len(data) == product.get("bytes"), f"Byte count mismatch: {asset}"
+              assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", f"Not a valid WebP container: {asset}"
+              assert len(data) > 1000, f"Suspiciously small image: {asset}"
+              if product["id"] == "SC-010":
+                  assert product.get("view") == "back", "SC-010 must remain back-view-only"
+              (destination / source.name).write_bytes(data)
+
+          actual = {p.name for p in destination.glob("sc-*.webp")}
+          assert actual == {f"sc-{i:03d}.webp" for i in range(1, 15)}, "Imported image set is incomplete or contains unexpected files"
+          print("Validated 14 manifest-matched WebP derivatives.")
+          PY
 
       - name: Commit prepared derivatives
         run: |
