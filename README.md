@@ -34,6 +34,10 @@ The 14 approved founder-supplied WebP derivatives are committed at `/products/sc
 - Social-sharing metadata is defined without inventing a canonical production URL or an unapproved social preview image.
 - Static catalogue JSON uses normal browser caching; the lead hero photograph is preloaded and marked high priority.
 
+## Founder approval
+
+Use [the founder approval checklist](./docs/FOUNDER_APPROVAL_CHECKLIST.md) to record official product names, current pricing, sizes, availability, delivery terms, photography decisions and brand approval before commercial release.
+
 ## Commerce boundary
 
 This is a catalogue and enquiry experience. It does not process payments or claim live inventory. All pricing, sizing and availability must be confirmed by the store.
