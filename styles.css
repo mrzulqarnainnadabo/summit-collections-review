@@ -31,3 +31,9 @@
 @media(max-width:380px){.hero-actions{align-items:flex-start;flex-direction:column}.hero-stage{height:350px}.product-meta h3{font-size:18px}.filters{gap:5px 12px}}
 @media(min-width:761px) and (max-width:1000px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 20px}.product-meta h3{font-size:28px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.ticker-track{animation:none!important}.reveal,.reveal-image,.product-card{opacity:1!important;transform:none!important}}
+
+/* Responsive control and drawer geometry safeguards. */
+@media(max-width:760px){
+ .search input{min-height:44px}
+ .selection-drawer.show{transform:translateY(0)}
+}
