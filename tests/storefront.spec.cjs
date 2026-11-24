@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('storefront and product dialog meet WCAG A/AA accessibility checks', async ({ page }) => {
-  await page.locator('#prelude.done').waitFor({ timeout: 3000 });
+  await expect(page.locator('#prelude')).toHaveClass(/done/, { timeout: 3000 });
   await page.addStyleTag({ content: '*,*::before,*::after{animation:none!important;transition:none!important}' });
   await page.evaluate(async () => {
     document.documentElement.style.scrollBehavior = 'auto';
@@ -162,7 +162,7 @@ test('enquiry drawer keeps product information and form controls readable on mob
     await page.locator('.product-visual[data-id="SC-002"]').click();
     await page.locator('#add').click();
     await expect.poll(() => page.locator('#drawer').evaluate(node => Math.abs(node.getBoundingClientRect().right - window.innerWidth))).toBeLessThan(1);
-    await expect.poll(() => page.locator('#drawer').evaluate(node => getComputedStyle(node).transform)).toBe('none');
+    await expect.poll(() => page.locator('#drawer').evaluate(node => { const value = getComputedStyle(node).transform; return value === 'none' || new DOMMatrixReadOnly(value).isIdentity; })).toBe(true);
     const layout = await page.locator('#drawer').evaluate(node => {
       const rect = node.getBoundingClientRect();
       const copy = node.querySelector('.drawer-bottom>p');
@@ -262,7 +262,7 @@ for (const viewport of widths) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.reload({ waitUntil: 'networkidle' });
     await expect(page.locator('.product-card')).toHaveCount(14);
-    await page.locator('#prelude.done').waitFor({ timeout: 3000 });
+    await expect(page.locator('#prelude')).toHaveClass(/done/, { timeout: 3000 });
     await page.evaluate(async () => {
       document.documentElement.style.scrollBehavior = 'auto';
       const step = Math.max(320, window.innerHeight * 0.7);

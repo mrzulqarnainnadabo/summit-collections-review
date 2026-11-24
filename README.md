@@ -61,7 +61,9 @@ The latest design pass replaces the earlier motion-heavy landing-page sequence w
 The founder's original product photography, product references, enquiry workflow, temporary-name disclosures, legacy-price warning, SC-010 back-view disclosure and SC-015 exclusion are retained. No product names, prices, sizes, availability or commercial claims have been invented in this pass.
 
 - Design implementation commit: `f158f064a9a6d832632571453cf405a33e90eb41`.
-- Static source checks confirmed unique required IDs, preserved catalogue and interaction hooks, 14 published records, SC-010 back-view status, SC-015 exclusion, metadata and responsive control safeguards.
-- The earlier 15/15 browser QA result predates this redesign and must not be represented as validation of the new design. A fresh browser QA run and visual review are required before a founder-facing link is issued.
-- The separate Netlify review project exists. Do not trigger a Netlify deploy until the redesign passes review. Vercel remains out of scope.
-- The original production website, `main`, and the live domain remain untouched.
+- Fresh catalogue integrity and storefront-contract checks passed on the current working tree: 14 published records, one unpublished SC-015 record, one legacy Yasmine price, all 14 image files present, 32 unique HTML IDs and required interaction/accessibility hooks.
+- Fresh isolated Chromium browser QA passed **15/15 tests** on the current working tree. Coverage includes axe WCAG 2.1 A/AA checks on the storefront and product dialog, all 14 product images, provisional/name/back-view disclosures, search and filters, product selection and quantities, WhatsApp handoff, enquiry drawer geometry and focus handling, 44px mobile controls, and overflow checks at 390px, 820px and 1440px.
+- The browser pass corrected low-contrast editorial metadata, the mobile selection trigger's touch height, accessible product-card naming, and stale test assumptions about the removed ticker and hidden prelude. The current palette retains the restrained limestone, ink and muted-gold direction while meeting the tested contrast threshold.
+- Visual review captures were inspected at mobile, tablet and desktop, including the product-detail dialog and mobile enquiry drawer. The original founder photography remains unchanged.
+- The separate Netlify review project still points to an older production-context deploy; no new branch preview or deployment has been created. Vercel remains out of scope.
+- The original production website, `main`, and the live domain remain untouched. This branch is not merged, and a founder-facing preview link has not yet been issued.
