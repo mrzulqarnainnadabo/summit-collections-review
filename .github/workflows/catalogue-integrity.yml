@@ -23,6 +23,8 @@ jobs:
           node-version: 20
       - name: Verify catalogue provenance and publication rules
         run: node scripts/verify-catalogue.mjs
+      - name: Verify storefront integration and accessibility contract
+        run: node scripts/verify-storefront-contract.mjs
 
   verify-release-assets:
     if: github.event_name == 'pull_request'
