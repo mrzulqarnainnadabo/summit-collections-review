@@ -102,3 +102,4 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 
 /* Darker editorial bronze on light surfaces; pale gold remains reserved for dark surfaces. */
 .feature-copy .eyebrow{color:#c4a77f}
+input::placeholder{color:#62584e;opacity:1}
