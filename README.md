@@ -13,16 +13,16 @@ A responsive editorial storefront for the founder's abaya collection. This proje
 
 The working catalogue is defined in `data/products.json`.
 
-- 14 confirmed product references are represented.
+- 14 product references are represented in the review catalogue.
 - SC-003 and SC-004 are separate garments cropped from the shared IMG_8888 source.
 - SC-010 is explicitly labelled back-view-only.
 - SC-015 remains provisional and is excluded from the public collection.
 - Legacy visual matches have been restored selectively: Yasmine (last recorded price ₦480,000), Turquoise Bloom and Lilac Border. These labels are carried forward only where the garment colour and distinctive detailing support the match.
 - Other pieces use temporary editorial visual descriptors (for example, Sage Lace and Gilded Ivory), not founder-approved official names.
-- Yasmine's price is a legacy record and must be reconfirmed with the founder before checkout or final publication.
+- Yasmine's price is a legacy record and must be reconfirmed with the founder before any order is accepted.
 - No other product prices, sizes, stock levels or product claims are invented.
 
-Approved image derivatives are referenced at `/products/sc-001.webp` through `/products/sc-014.webp`. The converted source JPEGs are retained separately; only carefully prepared derivatives should be committed to the storefront.
+The 14 approved founder-supplied WebP derivatives are committed at `/products/sc-001.webp` through `/products/sc-014.webp`. Their archive manifest was checked against image dimensions and byte sizes before import.
 
 ## Experience
 
@@ -38,8 +38,10 @@ This is a catalogue and enquiry experience. It does not process payments or clai
 
 ## Development and release status
 
-- Active branch: `feat/founder-catalogue-foundation`.
-- The catalogue data and storefront rendering have been connected to the 14 confirmed product references.
-- The prepared WebP product image derivatives are packaged separately and still need to be committed under `/products` before a founder-facing preview is considered ready.
-- Browser QA and a refreshed Netlify review deployment are pending. Vercel is intentionally out of scope.
-- The original production site and `main` branch have not been changed by this work.
+- Active development branch: `feat/founder-catalogue-foundation`.
+- Founder asset import completed: 14 of 14 WebP files committed; SC-010 remains back-view-only and SC-015 remains unpublished.
+- GitHub Actions passed the import workflow and the catalogue metadata/storefront contract checks after asset integration.
+- The development workflow now also requires all 14 image files to exist, and the import workflow checks each WebP's dimensions and byte size against the manifest.
+- Responsive browser QA, real interaction testing, screenshots and demonstration evidence are still pending. Do not treat CI contract checks as a substitute for browser testing.
+- No review deployment has been created for the current branch. Vercel is intentionally out of scope.
+- The original production website and `main` branch remain untouched. Do not deploy or merge without explicit approval.
