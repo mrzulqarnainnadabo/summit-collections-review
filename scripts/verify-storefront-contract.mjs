@@ -51,7 +51,10 @@ assert.match(js, /' × '\+\(quantities\[id\]\|\|1\)/, 'WhatsApp enquiry must inc
 assert.match(js, /setAttribute\('aria-label',`\$\{total\} selected \$\{total===1\?'unit':'units'\}`\)/, 'Selection count must have an accurate accessible label.');
 assert.match(html, /id="count" aria-live="polite" aria-atomic="true"/, 'Selection count changes must be announced to assistive technology.');
 assert.match(js, /if\(e\.key==='Tab'\)/, 'Open enquiry drawer must retain its keyboard focus trap.');
-assert.match(js, /drawerReturnFocus\?\.focus/, 'Closing enquiry drawer must restore keyboard focus.');
+assert.match(js, /function restoreFocus\(target,fallback\)/, 'Drawer focus restoration must use a shared validated focus helper.');
+assert.match(js, /el\.isConnected&&el\.getClientRects\(\)\.length>0&&!el\.disabled/, 'Focus restoration must reject detached, hidden, or disabled elements.');
+assert.match(js, /restoreFocus\(target,\$\('#bagOpen'\)\)/, 'Drawer focus restoration must fall back to the selection trigger when its original target is unavailable.');
+assert.match(js, /drawerReturnFocus=null;restoreFocus\(target/, 'Drawer must clear its saved focus target after closing.');
 assert.match(js, /mobile\.inert=!open/, 'Closed mobile navigation must be removed from keyboard interaction.');
 assert.match(js, /nextControl\?\.focus\(\)/, 'Quantity changes must preserve keyboard focus after the enquiry bag re-renders.');
 assert.match(js, /controls\.find\(el=>el\.dataset\.qty===action&&!el\.disabled\)\|\|controls\.find\(el=>!el\.disabled\)/, 'Quantity changes must move focus to an enabled control when the active action becomes disabled.');
