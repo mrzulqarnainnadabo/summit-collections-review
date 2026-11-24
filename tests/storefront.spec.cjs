@@ -117,15 +117,20 @@ for (const viewport of widths) {
     await expect(page.locator('.product-card')).toHaveCount(14);
     await page.locator('#prelude.done').waitFor({ timeout: 3000 });
     await page.evaluate(async () => {
+      document.documentElement.style.scrollBehavior = 'auto';
       const step = Math.max(320, window.innerHeight * 0.7);
       const height = document.documentElement.scrollHeight;
       for (let y = 0; y < height; y += step) {
         window.scrollTo(0, y);
-        await new Promise(resolve => setTimeout(resolve, 140));
+        await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 100)));
       }
       window.scrollTo(0, 0);
     });
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(1000);
+    const revealedCards = await page.locator('.product-card').evaluateAll(nodes =>
+      nodes.filter(node => Number(getComputedStyle(node).opacity) > 0.9).length
+    );
+    expect(revealedCards, 'all catalogue cards should reveal during a full-page scroll').toBe(14);
     const dimensions = await page.evaluate(() => ({
       viewport: document.documentElement.clientWidth,
       page: document.documentElement.scrollWidth,
