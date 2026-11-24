@@ -23,11 +23,12 @@
       "currency": "NGN",
       "priceSource": "Legacy project notes; previously confirmed by founder",
       "priceStatus": "legacy-confirmed",
-      "priceNote": "Confirm current price with founder before checkout; this is the last recorded legacy price."
+      "priceNote": "Confirm current price with founder before checkout; this is the last recorded legacy price.",
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
     },
     {
       "id": "SC-002",
-      "label": "Piece 02",
+      "label": "Mustard Noir",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -37,11 +38,13 @@
       "assets": [
         "/products/sc-002.webp"
       ],
-      "notes": "Mustard/yellow abaya with black-and-gold textured panel and rhinestone details."
+      "notes": "Mustard/yellow abaya with black-and-gold textured panel and rhinestone details.",
+      "name": "Mustard Noir",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-003",
-      "label": "Piece 03",
+      "label": "Sage Lace",
       "status": "confirmed",
       "view": "front",
       "tone": "neutral",
@@ -53,11 +56,13 @@
         "/products/sc-003.webp"
       ],
       "notes": "Sage/mint lace embroidered abaya. Split from shared source photograph.",
-      "imageFit": "contain"
+      "imageFit": "contain",
+      "name": "Sage Lace",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-004",
-      "label": "Piece 04",
+      "label": "Dusty Rose Lace",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -69,11 +74,13 @@
         "/products/sc-004.webp"
       ],
       "notes": "Dusty-pink lace embroidered abaya. Split from shared source photograph.",
-      "imageFit": "contain"
+      "imageFit": "contain",
+      "name": "Dusty Rose Lace",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-005",
-      "label": "Piece 05",
+      "label": "Teal Botanica",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -83,7 +90,9 @@
       "assets": [
         "/products/sc-005.webp"
       ],
-      "notes": "Teal/mint abaya with floral-print sleeves and hijab."
+      "notes": "Teal/mint abaya with floral-print sleeves and hijab.",
+      "name": "Teal Botanica",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-006",
@@ -99,11 +108,12 @@
       ],
       "notes": "Turquoise abaya with purple/blue lace and beading.",
       "name": "Turquoise Bloom",
-      "legacyMatch": "Turquoise base with purple/blue floral border and lace"
+      "legacyMatch": "Turquoise base with purple/blue floral border and lace",
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
     },
     {
       "id": "SC-007",
-      "label": "Piece 07",
+      "label": "Midnight Cascade",
       "status": "confirmed",
       "view": "front",
       "tone": "dark",
@@ -113,7 +123,9 @@
       "assets": [
         "/products/sc-007.webp"
       ],
-      "notes": "Black abaya with cascading silver, gold and white feather/leaf embroidery."
+      "notes": "Black abaya with cascading silver, gold and white feather/leaf embroidery.",
+      "name": "Midnight Cascade",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-008",
@@ -129,11 +141,12 @@
       ],
       "notes": "Beige/cream abaya with purple and gold lace.",
       "name": "Lilac Border",
-      "legacyMatch": "Sand/beige base with lilac-purple border embroidery"
+      "legacyMatch": "Sand/beige base with lilac-purple border embroidery",
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
     },
     {
       "id": "SC-009",
-      "label": "Piece 09",
+      "label": "Monochrome Floral",
       "status": "confirmed",
       "view": "front",
       "tone": "dark",
@@ -143,11 +156,13 @@
       "assets": [
         "/products/sc-009.webp"
       ],
-      "notes": "Black abaya with black-and-white floral print."
+      "notes": "Black abaya with black-and-white floral print.",
+      "name": "Monochrome Floral",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-010",
-      "label": "Piece 10",
+      "label": "Blue Lace",
       "status": "confirmed-incomplete-photography",
       "view": "back",
       "tone": "colour",
@@ -157,11 +172,13 @@
       "assets": [
         "/products/sc-010.webp"
       ],
-      "notes": "Mid-blue abaya. Back view only; obtain front view before presenting as a complete product gallery."
+      "notes": "Mid-blue abaya. Back view only; obtain front view before presenting as a complete product gallery.",
+      "name": "Blue Lace",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-011",
-      "label": "Piece 11",
+      "label": "Olive Bloom",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -171,11 +188,13 @@
       "assets": [
         "/products/sc-011.webp"
       ],
-      "notes": "Olive abaya with navy and gold sequined floral embroidery."
+      "notes": "Olive abaya with navy and gold sequined floral embroidery.",
+      "name": "Olive Bloom",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-012",
-      "label": "Piece 12",
+      "label": "Black Textures",
       "status": "confirmed",
       "view": "front",
       "tone": "dark",
@@ -185,11 +204,13 @@
       "assets": [
         "/products/sc-012.webp"
       ],
-      "notes": "Black abaya with black-and-beige abstract lace pattern."
+      "notes": "Black abaya with black-and-beige abstract lace pattern.",
+      "name": "Black Textures",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-013",
-      "label": "Piece 13",
+      "label": "Terracotta Botanica",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -199,11 +220,13 @@
       "assets": [
         "/products/sc-013.webp"
       ],
-      "notes": "Rust/terracotta abaya with multi-colour print."
+      "notes": "Rust/terracotta abaya with multi-colour print.",
+      "name": "Terracotta Botanica",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-014",
-      "label": "Piece 14",
+      "label": "Gilded Ivory",
       "status": "confirmed",
       "view": "front",
       "tone": "neutral",
@@ -213,7 +236,9 @@
       "assets": [
         "/products/sc-014.webp"
       ],
-      "notes": "Beige abaya with gold/bronze sequined floral appliqués."
+      "notes": "Beige abaya with gold/bronze sequined floral appliqués.",
+      "name": "Gilded Ivory",
+      "nameSource": "temporary visual descriptor; not founder-approved official product name"
     },
     {
       "id": "SC-015",
