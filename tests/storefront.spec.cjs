@@ -105,6 +105,17 @@ test('search and category filters update the collection', async ({ page }) => {
   await expect(page.getByText('No pieces match that search.', { exact: true })).toBeVisible();
 });
 
+test('empty enquiry bag guides visitors back to the collection and prevents an empty handoff', async ({ page }) => {
+  await page.locator('#bagOpen').click();
+  await expect(page.locator('#items')).toContainText('Your selection is empty.');
+  await expect(page.locator('#send')).toBeDisabled();
+  await expect(page.locator('#enquiryFields')).toBeHidden();
+  await page.locator('.empty-browse').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+  await expect(page).toHaveURL(/#collection$/);
+  await expect(page.locator('#collection')).toBeInViewport();
+});
+
 test('product details, enquiry selection and quantity controls work', async ({ page }) => {
   await page.locator('.product-visual[data-id="SC-001"]').click();
   await expect(page.locator('#detail')).toBeVisible();
