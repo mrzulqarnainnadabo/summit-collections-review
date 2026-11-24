@@ -111,5 +111,5 @@ input::placeholder{color:#62584e;opacity:1}
   .menu-trigger{width:44px;height:44px;align-items:center}
   .search input{min-height:44px}
   .drawer-head button{width:44px;height:44px;display:grid;place-items:center}
-  .dialog-close{width:44px;height:44px}
+  .dialog-close{width:48px;height:48px;min-width:48px;min-height:48px}
 }
