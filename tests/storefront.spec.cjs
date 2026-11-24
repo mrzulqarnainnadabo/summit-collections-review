@@ -192,6 +192,19 @@ for (const viewport of widths) {
       nodes.filter(node => Number(getComputedStyle(node).opacity) > 0.9).length
     );
     expect(revealedCards, 'all catalogue cards should reveal during a full-page scroll').toBe(14);
+    const decodedImages = await page.locator('.product-card .product-visual img').evaluateAll(async nodes => {
+      await Promise.all(nodes.map(img => {
+        img.loading = 'eager';
+        return img.decode();
+      }));
+      return nodes.map(img => ({
+        source: new URL(img.currentSrc || img.src).pathname,
+        width: img.naturalWidth,
+        height: img.naturalHeight,
+      }));
+    });
+    expect(decodedImages).toHaveLength(14);
+    expect(decodedImages.every(img => img.width > 0 && img.height > 0), 'all product images must be decoded before screenshots').toBe(true);
     const dimensions = await page.evaluate(() => ({
       viewport: document.documentElement.clientWidth,
       page: document.documentElement.scrollWidth,
