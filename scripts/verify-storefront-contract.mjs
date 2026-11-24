@@ -46,5 +46,8 @@ assert.match(html, /id="count" aria-live="polite" aria-atomic="true"/, 'Selectio
 assert.match(js, /if\(e\.key==='Tab'\)/, 'Open enquiry drawer must retain its keyboard focus trap.');
 assert.match(js, /drawerReturnFocus\?\.focus/, 'Closing enquiry drawer must restore keyboard focus.');
 assert.match(js, /mobile\.inert=!open/, 'Closed mobile navigation must be removed from keyboard interaction.');
+assert.match(js, /\$\$\('\[data-filter\]'\)\.forEach\(x=>/, 'Filter updates must iterate over all filter controls.');
+assert.match(js, /\$\$\('#mobileNav a'\)\.forEach\(a=>/, 'Mobile navigation must bind every navigation link.');
+assert.match(js, /\$\$\('\[data-parallax\]'\)\.forEach\(el=>/, 'Scroll effects must iterate over all parallax elements.');
 
 console.log(`Storefront contract passed: ${idSet.size} unique IDs, required controls present, catalogue hooks and accessibility safeguards checked.`);
