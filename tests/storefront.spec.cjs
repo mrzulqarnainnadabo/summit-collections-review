@@ -179,6 +179,8 @@ test('enquiry drawer keeps product information and form controls readable on mob
         quantityHeight: quantity.getBoundingClientRect().height,
         removeWidth: remove.getBoundingClientRect().width,
         removeHeight: remove.getBoundingClientRect().height,
+        itemBottom: node.querySelector('.drawer-items').getBoundingClientRect().bottom,
+        formTop: node.querySelector('.drawer-bottom').getBoundingClientRect().top,
       };
     });
     expect(layout.left).toBeGreaterThanOrEqual(-1);
@@ -191,6 +193,9 @@ test('enquiry drawer keeps product information and form controls readable on mob
     expect(layout.quantityHeight).toBeGreaterThanOrEqual(36);
     expect(layout.removeWidth).toBeGreaterThanOrEqual(44);
     expect(layout.removeHeight).toBeGreaterThanOrEqual(44);
+    if (viewport.width <= 680) {
+      expect(layout.formTop - layout.itemBottom, 'mobile enquiry form should follow the selected pieces without a large dead zone').toBeLessThanOrEqual(60);
+    }
     await page.screenshot({ path: `test-results/${viewport.name}-enquiry-drawer.png` });
     await page.locator('#bagClose').click();
   }
