@@ -16,6 +16,17 @@ test.beforeEach(async ({ page }) => {
 
 test('storefront and product dialog meet WCAG A/AA accessibility checks', async ({ page }) => {
   await page.locator('#prelude.done').waitFor({ timeout: 3000 });
+  await page.evaluate(async () => {
+    document.documentElement.style.scrollBehavior = 'auto';
+    const step = Math.max(320, window.innerHeight * 0.7);
+    const height = document.documentElement.scrollHeight;
+    for (let y = 0; y < height; y += step) {
+      window.scrollTo(0, y);
+      await new Promise(resolve => setTimeout(resolve, 90));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(1000);
   const tags = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
   const storefront = await new AxeBuilder({ page }).withTags(tags).analyze();
   expect(storefront.violations.map(v => ({
