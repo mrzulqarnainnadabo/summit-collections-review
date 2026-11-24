@@ -17,7 +17,7 @@ The working catalogue is defined in `data/products.json`.
 - SC-003 and SC-004 are separate garments cropped from the shared IMG_8888 source.
 - SC-010 is explicitly labelled back-view-only.
 - SC-015 remains provisional and is excluded from the public collection.
-- Legacy visual matches have been restored selectively: Yasmine (last recorded price ₦480,000), Turquoise Bloom and Lilac Border. These labels are carried forward only where the garment details support the match.\n- Yasmine's price is a legacy record and must be reconfirmed with the founder before checkout or final publication.\n- No other product prices, sizes, stock levels or product claims are invented.
+- Legacy visual matches have been restored selectively: Yasmine (last recorded price ₦480,000), Turquoise Bloom and Lilac Border. These labels are carried forward only where the garment colour and distinctive detailing support the match.\n- Other pieces use temporary editorial visual descriptors (for example, Sage Lace and Gilded Ivory), not founder-approved official names.\n- Yasmine's price is a legacy record and must be reconfirmed with the founder before checkout or final publication.\n- No other product prices, sizes, stock levels or product claims are invented.
 
 Approved image derivatives are referenced at `/products/sc-001.webp` through `/products/sc-014.webp`. The converted source JPEGs are retained separately; only carefully prepared derivatives should be committed to the storefront.
 
