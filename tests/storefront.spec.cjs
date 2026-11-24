@@ -46,7 +46,7 @@ test('search and category filters update the collection', async ({ page }) => {
   await expect(page.locator('.product-card')).toHaveCount(1);
   await expect(page.locator('.product-card h3')).toHaveText('Yasmine');
   await page.getByRole('searchbox', { name: 'Search collection' }).fill('no-such-piece');
-  await expect(page.locator('.empty-state')).toBeVisible();
+  await expect(page.getByText('No pieces match that search.', { exact: true })).toBeVisible();
 });
 
 test('product details, enquiry selection and quantity controls work', async ({ page }) => {
