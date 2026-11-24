@@ -220,3 +220,10 @@ input::placeholder{color:#62584e;opacity:1}
 @media(max-width:680px){
   .drawer-bottom{margin-top:28px}
 }
+
+
+/* On narrow screens the selection becomes a compact bottom sheet, not a tall empty side panel. */
+@media(max-width:680px){
+  .selection-drawer{top:auto;bottom:0;height:auto;max-height:90dvh;border-radius:16px 16px 0 0;transform:translateY(102%)}
+  .selection-drawer.show{transform:none}
+}
