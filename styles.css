@@ -214,3 +214,9 @@ input::placeholder{color:#62584e;opacity:1}
 .empty-browse{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;padding:0 14px;border:1px solid var(--gold);color:var(--wine);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .drawer-bottom [hidden]{display:none!important}
 .drawer-bottom .button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+
+/* Mobile enquiry composition: keep the customer form close to the selected pieces. */
+@media(max-width:680px){
+  .drawer-bottom{margin-top:28px}
+}
