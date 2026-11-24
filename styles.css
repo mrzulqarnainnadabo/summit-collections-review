@@ -106,7 +106,7 @@ input::placeholder{color:#62584e;opacity:1}
 
 /* Mobile ergonomics: keep key controls comfortably tappable without changing the editorial layout. */
 @media(max-width:680px){
-  .filters button{min-height:44px;padding:10px 0}
+  .filters button{min-width:44px;min-height:44px;padding:10px 2px}
   .bag-trigger{min-height:44px;padding:0 2px}
   .menu-trigger{width:44px;height:44px;align-items:center}
   .search input{min-height:44px}
