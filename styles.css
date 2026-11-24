@@ -33,3 +33,4 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 14px}.collection{padding-inline:5%}}
 @media(max-width:560px){.product-grid{gap:26px 10px}.product-meta h3{font-size:22px}.product-meta p{font-size:7px}.product-visual{aspect-ratio:2/3}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+\n.product-price{display:block;margin-top:7px;color:#8e765c;font-size:10px;letter-spacing:.08em}.detail-price{font:22px var(--serif);color:var(--wine);margin:12px 0}.product-meta{align-items:flex-start}\n
