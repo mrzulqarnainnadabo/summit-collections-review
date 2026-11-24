@@ -238,7 +238,7 @@ test('drawer traps focus and restores it to the opening control', async ({ page 
   await expect(page.locator('#drawer')).toBeVisible();
   await expect(page.locator('#bagClose')).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(page.locator('#send')).toBeFocused();
+  await expect(page.locator('.empty-browse')).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
   await expect(page.locator('#drawer')).toHaveAttribute('inert', '');
