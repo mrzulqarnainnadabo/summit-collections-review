@@ -42,3 +42,5 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 :where(a,button,input,[tabindex]):focus-visible{outline:2px solid var(--wine);outline-offset:4px}
 .mobile-nav[inert],.selection-drawer[inert]{pointer-events:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.product-price-note{display:block;margin-top:3px;color:#8a8178;font-size:7px;line-height:1.45;letter-spacing:.1em}
