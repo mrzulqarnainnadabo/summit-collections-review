@@ -14,8 +14,15 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('all published catalogue photographs load from the repository', async ({ page }) => {
+  const paths = Array.from({ length: 14 }, (_, i) => `/products/sc-${String(i + 1).padStart(3, '0')}.webp`);
+  const responses = await Promise.all(paths.map(path => page.request.get(baseURL + path)));
+  expect(responses.every(response => response.ok())).toBe(true);
   const images = page.locator('.product-card .product-visual img');
   await expect(images).toHaveCount(14);
+  await images.evaluateAll(nodes => nodes.forEach(img => { img.loading = 'eager'; }));
+  await page.evaluate(async () => Promise.all(
+    [...document.querySelectorAll('.product-card .product-visual img')].map(img => img.decode())
+  ));
   const results = await images.evaluateAll(nodes => nodes.map(img => ({
     src: new URL(img.currentSrc || img.src).pathname,
     complete: img.complete,
@@ -98,7 +105,8 @@ test('drawer traps focus and restores it to the opening control', async ({ page 
   await page.keyboard.press('Shift+Tab');
   await expect(page.locator('#send')).toBeFocused();
   await page.keyboard.press('Escape');
-  await expect(page.locator('#drawer')).toBeHidden();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+  await expect(page.locator('#drawer')).toHaveAttribute('inert', '');
   await expect(trigger).toBeFocused();
 });
 
