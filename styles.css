@@ -49,3 +49,6 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 .quantity-control button{width:25px;height:25px;border:0;background:transparent;color:inherit;font:16px/1 var(--sans);cursor:pointer}
 .quantity-control button:disabled{opacity:.3;cursor:not-allowed}
 .quantity-control span{min-width:14px;text-align:center;font-size:10px;font-variant-numeric:tabular-nums}
+
+/* Catalogue naming provenance: temporary labels are not presented as founder-approved names. */
+.name-status{display:block;margin-top:5px;color:#8b6f4e;font-size:7px;letter-spacing:.13em;line-height:1.5}
