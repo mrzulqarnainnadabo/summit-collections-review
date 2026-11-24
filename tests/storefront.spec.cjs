@@ -311,6 +311,9 @@ test('product detail remains readable and contained on mobile, tablet and deskto
     expect(layout.provenanceFontSize).toBeGreaterThanOrEqual(9);
     expect(layout.imageLoaded).toBe(true);
     expect(layout.imageFit).toBe('contain');
+    // The native dialog opens with a short entrance animation. Wait for the
+    // visual state to finish before capturing review evidence.
+    await expect.poll(() => dialog.evaluate(node => getComputedStyle(node).opacity)).toBe('1');
     await page.screenshot({ path: `test-results/${viewport.name}-product-detail.png` });
     await page.locator('#detailClose').click();
   }
