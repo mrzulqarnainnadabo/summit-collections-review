@@ -52,3 +52,20 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 
 /* Catalogue naming provenance: temporary labels are not presented as founder-approved names. */
 .name-status{display:block;margin-top:5px;color:#8b6f4e;font-size:7px;letter-spacing:.13em;line-height:1.5}
+
+/* Reduced-motion mode: preserve content and layout without decorative movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ticker-track { animation: none !important; transform: none !important; }
+  .reveal, .reveal-image, .product-card {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
