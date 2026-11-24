@@ -122,6 +122,30 @@ test('WhatsApp enquiry opens with selected item and customer details', async ({ 
   expect(message).toContain('Abuja');
 });
 
+test('mobile primary controls meet 44px touch-target dimensions', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const controls = page.locator('.filters button, #bagOpen, #menuOpen, .search input');
+  const sizes = await controls.evaluateAll(nodes => nodes.map(node => ({
+    label: node.getAttribute('aria-label') || node.textContent.trim() || node.getAttribute('placeholder'),
+    width: node.getBoundingClientRect().width,
+    height: node.getBoundingClientRect().height,
+  })));
+  expect(sizes.length).toBeGreaterThan(5);
+  for (const item of sizes) {
+    expect(item.width, `${item.label} should be at least 44px wide`).toBeGreaterThanOrEqual(44);
+    expect(item.height, `${item.label} should be at least 44px high`).toBeGreaterThanOrEqual(44);
+  }
+  await page.locator('#bagOpen').click();
+  const drawerClose = await page.locator('#bagClose').boundingBox();
+  expect(drawerClose.width).toBeGreaterThanOrEqual(44);
+  expect(drawerClose.height).toBeGreaterThanOrEqual(44);
+  await page.locator('#bagClose').click();
+  await page.locator('.product-visual[data-id="SC-001"]').click();
+  const dialogClose = await page.locator('#detailClose').boundingBox();
+  expect(dialogClose.width).toBeGreaterThanOrEqual(44);
+  expect(dialogClose.height).toBeGreaterThanOrEqual(44);
+});
+
 test('mobile navigation opens and closes accessibly', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const trigger = page.locator('#menuOpen');
