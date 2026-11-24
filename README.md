@@ -42,6 +42,8 @@ This is a catalogue and enquiry experience. It does not process payments or clai
 - Founder asset import completed: 14 of 14 WebP files committed; SC-010 remains back-view-only and SC-015 remains unpublished.
 - GitHub Actions passed the import workflow and the catalogue metadata/storefront contract checks after asset integration.
 - The development workflow now also requires all 14 image files to exist, and the import workflow checks each WebP's dimensions and byte size against the manifest.
-- Responsive browser QA, real interaction testing, screenshots and demonstration evidence are still pending. Do not treat CI contract checks as a substitute for browser testing.
+- Browser QA passes 9/9 Playwright tests on Chromium, including all 14 published images, search/filter behaviour, product detail and enquiry flows, WhatsApp handoff, keyboard focus, and no horizontal overflow at 390px, 820px and 1440px.
+- Full-page screenshots are generated after scrolling the page so reveal animations and all 14 catalogue cards are represented. Latest run: https://github.com/mrzulqarnainnadabo/summit-collections-review/actions/runs/45425841388
+- A responsive typography legibility pass is included; browser QA and catalogue integrity both pass on the latest reviewed commit.
 - No review deployment has been created for the current branch. Vercel is intentionally out of scope.
 - The original production website and `main` branch remain untouched. Do not deploy or merge without explicit approval.
