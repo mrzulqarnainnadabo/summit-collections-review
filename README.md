@@ -42,8 +42,8 @@ This is a catalogue and enquiry experience. It does not process payments or clai
 - Founder asset import completed: 14 of 14 WebP files committed; SC-010 remains back-view-only and SC-015 remains unpublished.
 - GitHub Actions passed the import workflow and the catalogue metadata/storefront contract checks after asset integration.
 - The development workflow now also requires all 14 image files to exist, and the import workflow checks each WebP's dimensions and byte size against the manifest.
-- Browser QA passes 10/10 Playwright tests on Chromium, including WCAG A/AA axe checks on the storefront and product dialog, all 14 published images, search/filter behaviour, product detail and enquiry flows, WhatsApp handoff, keyboard focus, and no horizontal overflow at 390px, 820px and 1440px.
-- Full-page screenshots are generated after scrolling the page so reveal animations and all 14 catalogue cards are represented. Latest run: https://github.com/mrzulqarnainnadabo/summit-collections-review/actions/runs/45427850360
+- Browser QA passes 12/12 Playwright tests on Chromium, including WCAG A/AA axe checks on the storefront and product dialog, all 14 decoded published images, provisional-item exclusion, back-view disclosure, temporary-name disclosure, search/filter behaviour, product detail and enquiry flows, WhatsApp handoff, keyboard focus, mobile touch targets, and no horizontal overflow at 390px, 820px and 1440px.
+- Full-page responsive screenshots are generated after scrolling and decoding every catalogue image. Latest browser QA: https://github.com/mrzulqarnainnadabo/summit-collections-review/actions/runs/45431792194. Latest catalogue integrity check: https://github.com/mrzulqarnainnadabo/summit-collections-review/actions/runs/45431792063.
 - Responsive typography and text-contrast corrections are included; browser QA and catalogue integrity both pass on the latest reviewed commit.
 - No review deployment has been created for the current branch. Vercel is intentionally out of scope.
 - The original production website and `main` branch remain untouched. Do not deploy or merge without explicit approval.
