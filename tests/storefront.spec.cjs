@@ -84,6 +84,11 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
   await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
   await page.locator('.product-visual[data-id="SC-003"]').click();
   await expect(page.locator('#detailView')).toContainText('Temporary descriptor · not founder-approved');
+  await page.locator('#add').click();
+  await expect(page.locator('#drawer')).toBeVisible();
+  await expect(page.locator('#items')).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(page.locator('#items')).not.toContainText('WORKING DESCRIPTOR');
+  await page.locator('#bagClose').click();
   await expect(page.locator('#detailView')).toContainText('Front view');
   await page.locator('#detailClose').click();
 });
