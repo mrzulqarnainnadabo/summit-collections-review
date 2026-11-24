@@ -232,3 +232,36 @@ for (const viewport of widths) {
     await page.screenshot({ path: `test-results/${viewport.name}.png`, fullPage: true });
   });
 }
+
+
+test('product detail remains readable and contained on mobile, tablet and desktop', async ({ page }) => {
+  for (const viewport of widths) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.locator('.product-visual[data-id="SC-003"]').click();
+    const dialog = page.locator('#detail');
+    await expect(dialog).toBeVisible();
+    const layout = await dialog.evaluate(node => {
+      const rect = node.getBoundingClientRect();
+      const copy = node.querySelector('.dialog-copy>p:not(.eyebrow)');
+      const image = node.querySelector('.dialog-image>img');
+      return {
+        left: rect.left,
+        right: rect.right,
+        width: rect.width,
+        viewport: document.documentElement.clientWidth,
+        scrollWidth: node.scrollWidth,
+        clientWidth: node.clientWidth,
+        copyFontSize: parseFloat(getComputedStyle(copy).fontSize),
+        imageLoaded: image.complete && image.naturalWidth > 0,
+        imageFit: getComputedStyle(image).objectFit,
+      };
+    });
+    expect(layout.left).toBeGreaterThanOrEqual(-1);
+    expect(layout.right).toBeLessThanOrEqual(layout.viewport + 1);
+    expect(layout.scrollWidth).toBeLessThanOrEqual(layout.clientWidth + 1);
+    expect(layout.copyFontSize).toBeGreaterThanOrEqual(12);
+    expect(layout.imageLoaded).toBe(true);
+    expect(layout.imageFit).toBe('contain');
+    await page.locator('#detailClose').click();
+  }
+});
