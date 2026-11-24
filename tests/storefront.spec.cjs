@@ -180,6 +180,7 @@ test('enquiry drawer keeps product information and form controls readable on mob
     expect(layout.quantityHeight).toBeGreaterThanOrEqual(36);
     expect(layout.removeWidth).toBeGreaterThanOrEqual(44);
     expect(layout.removeHeight).toBeGreaterThanOrEqual(44);
+    await page.screenshot({ path: `test-results/${viewport.name}-enquiry-drawer.png` });
     await page.locator('#bagClose').click();
   }
 });
@@ -310,6 +311,7 @@ test('product detail remains readable and contained on mobile, tablet and deskto
     expect(layout.provenanceFontSize).toBeGreaterThanOrEqual(9);
     expect(layout.imageLoaded).toBe(true);
     expect(layout.imageFit).toBe('contain');
+    await page.screenshot({ path: `test-results/${viewport.name}-product-detail.png` });
     await page.locator('#detailClose').click();
   }
 });
