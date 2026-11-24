@@ -44,3 +44,8 @@ footer{background:#12100e;color:#f1e9de;padding:44px 6% 22px;display:grid;grid-t
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .product-price-note{display:block;margin-top:3px;color:#8a8178;font-size:7px;line-height:1.45;letter-spacing:.1em}
+/* Enquiry quantity controls */
+.quantity-control{display:inline-flex;align-items:center;gap:12px;margin-top:10px;border:1px solid var(--line);padding:3px 7px;color:var(--ink)}
+.quantity-control button{width:25px;height:25px;border:0;background:transparent;color:inherit;font:16px/1 var(--sans);cursor:pointer}
+.quantity-control button:disabled{opacity:.3;cursor:not-allowed}
+.quantity-control span{min-width:14px;text-align:center;font-size:10px;font-variant-numeric:tabular-nums}
