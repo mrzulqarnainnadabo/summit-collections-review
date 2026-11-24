@@ -42,6 +42,14 @@ jobs:
           assert {p.get("id") for p in products} == expected, "Manifest product IDs are incomplete or unexpected"
           assert len({p.get("asset") for p in products}) == 14, "Manifest asset paths must be unique"
 
+          def vp8_dimensions(data, asset):
+              assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", f"Not a valid WebP container: {asset}"
+              assert data[12:16] == b"VP8 ", f"Unexpected WebP encoding; expected approved lossy VP8 derivative: {asset}"
+              assert data[23:26] == b"\x9d\x01\x2a", f"Invalid VP8 frame header: {asset}"
+              width = int.from_bytes(data[26:28], "little") & 0x3fff
+              height = int.from_bytes(data[28:30], "little") & 0x3fff
+              return [width, height]
+
           destination = Path("products")
           destination.mkdir(exist_ok=True)
           for product in products:
@@ -50,15 +58,16 @@ jobs:
               source = root / asset
               data = source.read_bytes()
               assert len(data) == product.get("bytes"), f"Byte count mismatch: {asset}"
-              assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", f"Not a valid WebP container: {asset}"
               assert len(data) > 1000, f"Suspiciously small image: {asset}"
+              dimensions = vp8_dimensions(data, asset)
+              assert dimensions == product.get("dimensions"), f"Dimension mismatch for {asset}: {dimensions} != {product.get('dimensions')}"
               if product["id"] == "SC-010":
                   assert product.get("view") == "back", "SC-010 must remain back-view-only"
               (destination / source.name).write_bytes(data)
 
           actual = {p.name for p in destination.glob("sc-*.webp")}
           assert actual == {f"sc-{i:03d}.webp" for i in range(1, 15)}, "Imported image set is incomplete or contains unexpected files"
-          print("Validated 14 manifest-matched WebP derivatives.")
+          print("Validated 14 manifest-matched WebP derivatives, byte sizes and dimensions.")
           PY
 
       - name: Commit prepared derivatives
