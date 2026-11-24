@@ -60,7 +60,7 @@ The latest design pass replaces the earlier motion-heavy landing-page sequence w
 
 The founder's original product photography, product references, enquiry workflow, temporary-name disclosures, legacy-price warning, SC-010 back-view disclosure and SC-015 exclusion are retained. No product names, prices, sizes, availability or commercial claims have been invented in this pass.
 
-- Design implementation commit: `1d6edb90fb621def9f8a1953813663497a6f796c`.
+- Design implementation commit: `f158f064a9a6d832632571453cf405a33e90eb41`.
 - Static source checks confirmed unique required IDs, preserved catalogue and interaction hooks, 14 published records, SC-010 back-view status, SC-015 exclusion, metadata and responsive control safeguards.
 - The earlier 15/15 browser QA result predates this redesign and must not be represented as validation of the new design. A fresh browser QA run and visual review are required before a founder-facing link is issued.
 - The separate Netlify review project exists. Do not trigger a Netlify deploy until the redesign passes review. Vercel remains out of scope.
