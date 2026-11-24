@@ -28,6 +28,8 @@ jobs:
           node --check scripts/verify-storefront-contract.mjs
       - name: Verify catalogue provenance and publication rules
         run: node scripts/verify-catalogue.mjs
+      - name: Require all published product images on the development branch
+        run: node scripts/verify-catalogue.mjs --require-assets
       - name: Verify storefront integration and accessibility contract
         run: node scripts/verify-storefront-contract.mjs
 
