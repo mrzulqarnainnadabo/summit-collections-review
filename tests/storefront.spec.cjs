@@ -150,6 +150,7 @@ test('enquiry drawer keeps product information and form controls readable on mob
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.locator('.product-visual[data-id="SC-002"]').click();
     await page.locator('#add').click();
+    await expect.poll(() => page.locator('#drawer').evaluate(node => Math.abs(node.getBoundingClientRect().right - window.innerWidth))).toBeLessThan(1);
     const layout = await page.locator('#drawer').evaluate(node => {
       const rect = node.getBoundingClientRect();
       const copy = node.querySelector('.drawer-bottom>p');
