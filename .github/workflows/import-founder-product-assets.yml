@@ -1,0 +1,49 @@
+name: Import founder product assets
+
+on:
+  push:
+    branches:
+      - feat/founder-catalogue-foundation
+    paths:
+      - "assets/summit-founder-review-assets.zip"
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out development branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/founder-catalogue-foundation
+          persist-credentials: true
+
+      - name: Extract approved product derivatives
+        run: |
+          set -euo pipefail
+          test -f assets/summit-founder-review-assets.zip
+          mkdir -p /tmp/summit-assets
+          unzip -q assets/summit-founder-review-assets.zip -d /tmp/summit-assets
+          test -f /tmp/summit-assets/MANIFEST.json
+          mkdir -p products
+          for i in $(seq -w 1 14); do
+            file="/tmp/summit-assets/products/sc-${i}.webp"
+            test -s "$file"
+            cp "$file" "products/sc-${i}.webp"
+          done
+          test "$(find products -maxdepth 1 -name 'sc-*.webp' | wc -l)" -eq 14
+
+      - name: Commit prepared derivatives
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add products/sc-*.webp
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git commit -m "assets: add founder-approved product image derivatives"
+          git push origin HEAD:feat/founder-catalogue-foundation
