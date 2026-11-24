@@ -247,7 +247,8 @@ test('product detail remains readable and contained on mobile, tablet and deskto
     await expect(dialog).toBeVisible();
     const layout = await dialog.evaluate(node => {
       const rect = node.getBoundingClientRect();
-      const copy = node.querySelector('.dialog-copy>p:not(.eyebrow)');
+      const copy = node.querySelector('.dialog-copy>.price-note');
+      const provenance = node.querySelector('#detailView');
       const image = node.querySelector('.dialog-image>img');
       return {
         left: rect.left,
@@ -257,6 +258,7 @@ test('product detail remains readable and contained on mobile, tablet and deskto
         scrollWidth: node.scrollWidth,
         clientWidth: node.clientWidth,
         copyFontSize: parseFloat(getComputedStyle(copy).fontSize),
+        provenanceFontSize: parseFloat(getComputedStyle(provenance).fontSize),
         imageLoaded: image.complete && image.naturalWidth > 0,
         imageFit: getComputedStyle(image).objectFit,
       };
@@ -265,6 +267,7 @@ test('product detail remains readable and contained on mobile, tablet and deskto
     expect(layout.right).toBeLessThanOrEqual(layout.viewport + 1);
     expect(layout.scrollWidth).toBeLessThanOrEqual(layout.clientWidth + 1);
     expect(layout.copyFontSize).toBeGreaterThanOrEqual(12);
+    expect(layout.provenanceFontSize).toBeGreaterThanOrEqual(9);
     expect(layout.imageLoaded).toBe(true);
     expect(layout.imageFit).toBe('contain');
     await page.locator('#detailClose').click();
