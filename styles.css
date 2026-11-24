@@ -205,3 +205,12 @@ input::placeholder{color:#62584e;opacity:1}
  .drawer-bottom label{font-size:11px}
  .drawer-bottom .button{min-height:52px}
 }
+
+
+/* Empty enquiry state: explain the next step and prevent a dead-end action. */
+.empty-state{padding:30px 12px;text-align:left;line-height:1.7}
+.empty-state p{margin:0 0 10px;color:#62584e;font-size:12px}
+.empty-state p:first-child{font:26px/1.15 var(--serif);color:var(--ink)}
+.empty-browse{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;padding:0 14px;border:1px solid var(--gold);color:var(--wine);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.drawer-bottom [hidden]{display:none!important}
+.drawer-bottom .button:disabled{opacity:.5;cursor:not-allowed;transform:none}
