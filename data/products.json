@@ -52,7 +52,8 @@
       "assets": [
         "/products/sc-003.webp"
       ],
-      "notes": "Sage/mint lace embroidered abaya. Split from shared source photograph."
+      "notes": "Sage/mint lace embroidered abaya. Split from shared source photograph.",
+      "imageFit": "contain"
     },
     {
       "id": "SC-004",
@@ -67,7 +68,8 @@
       "assets": [
         "/products/sc-004.webp"
       ],
-      "notes": "Dusty-pink lace embroidered abaya. Split from shared source photograph."
+      "notes": "Dusty-pink lace embroidered abaya. Split from shared source photograph.",
+      "imageFit": "contain"
     },
     {
       "id": "SC-005",
