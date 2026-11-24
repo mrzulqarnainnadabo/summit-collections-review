@@ -2,11 +2,11 @@
   "catalogueVersion": "2026-11-24-v1",
   "status": "provisional-review-catalogue",
   "imageAspectRatio": "3:4",
-  "pricing": "not-supplied",
+  "pricing": "mixed: legacy-confirmed price for Yasmine; all other prices on enquiry",
   "products": [
     {
       "id": "SC-001",
-      "label": "Piece 01",
+      "label": "Yasmine",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -16,7 +16,14 @@
       "assets": [
         "/products/sc-001.webp"
       ],
-      "notes": "Pink multi-colour embroidered abaya. Preserve embroidery density, lace scallops and beadwork."
+      "notes": "Pink multi-colour embroidered abaya. Preserve embroidery density, lace scallops and beadwork.",
+      "name": "Yasmine",
+      "legacyMatch": "Pink embroidered border style; matches legacy Yasmine reference IMG_3987/IMG_3988",
+      "price": 480000,
+      "currency": "NGN",
+      "priceSource": "Legacy project notes; previously confirmed by founder",
+      "priceStatus": "legacy-confirmed",
+      "priceNote": "Confirm current price with founder before checkout; this is the last recorded legacy price."
     },
     {
       "id": "SC-002",
@@ -78,7 +85,7 @@
     },
     {
       "id": "SC-006",
-      "label": "Piece 06",
+      "label": "Turquoise Bloom",
       "status": "confirmed",
       "view": "front",
       "tone": "colour",
@@ -88,7 +95,9 @@
       "assets": [
         "/products/sc-006.webp"
       ],
-      "notes": "Turquoise abaya with purple/blue lace and beading."
+      "notes": "Turquoise abaya with purple/blue lace and beading.",
+      "name": "Turquoise Bloom",
+      "legacyMatch": "Turquoise base with purple/blue floral border and lace"
     },
     {
       "id": "SC-007",
@@ -106,7 +115,7 @@
     },
     {
       "id": "SC-008",
-      "label": "Piece 08",
+      "label": "Lilac Border",
       "status": "confirmed",
       "view": "front",
       "tone": "neutral",
@@ -116,7 +125,9 @@
       "assets": [
         "/products/sc-008.webp"
       ],
-      "notes": "Beige/cream abaya with purple and gold lace."
+      "notes": "Beige/cream abaya with purple and gold lace.",
+      "name": "Lilac Border",
+      "legacyMatch": "Sand/beige base with lilac-purple border embroidery"
     },
     {
       "id": "SC-009",
