@@ -51,6 +51,8 @@ test('all published catalogue photographs load from the repository', async ({ pa
   expect(responses.every(response => response.ok())).toBe(true);
   const images = page.locator('.product-card .product-visual img');
   await expect(images).toHaveCount(14);
+  const imageHints = await images.evaluateAll(nodes => nodes.map(img => ({ loading: img.loading, decoding: img.decoding })));
+  expect(imageHints.every(img => img.loading === 'lazy' && img.decoding === 'async')).toBe(true);
   await images.evaluateAll(nodes => nodes.forEach(img => { img.loading = 'eager'; }));
   await page.evaluate(async () => Promise.all(
     [...document.querySelectorAll('.product-card .product-visual img')].map(img => img.decode())
@@ -91,6 +93,9 @@ test('product details, enquiry selection and quantity controls work', async ({ p
   await expect(page.locator('#drawer')).toBeVisible();
   await expect(page.locator('#items')).toContainText('Yasmine');
   await expect(page.locator('#items')).toContainText('Size 56');
+  await expect(page.locator('#items img')).toHaveAttribute('loading', 'lazy');
+  await expect(page.locator('#items img')).toHaveAttribute('decoding', 'async');
+  await expect(page.locator('#detailImg')).toHaveAttribute('decoding', 'async');
   await expect(page.locator('#count')).toHaveText('1');
   await page.locator('#items [data-qty="increase"]').click();
   await expect(page.locator('#items .quantity-control span')).toHaveText('2');
