@@ -21,6 +21,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check scripts/verify-catalogue.mjs
+          node --check scripts/verify-storefront-contract.mjs
       - name: Verify catalogue provenance and publication rules
         run: node scripts/verify-catalogue.mjs
       - name: Verify storefront integration and accessibility contract
