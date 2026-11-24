@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
 
 const baseURL = 'http://127.0.0.1:4173';
 const widths = [
@@ -11,6 +12,25 @@ test.beforeEach(async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(baseURL, { waitUntil: 'networkidle' });
   await expect(page.locator('.product-card')).toHaveCount(14);
+});
+
+test('storefront and product dialog meet WCAG A/AA accessibility checks', async ({ page }) => {
+  await page.locator('#prelude.done').waitFor({ timeout: 3000 });
+  const tags = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
+  const storefront = await new AxeBuilder({ page }).withTags(tags).analyze();
+  expect(storefront.violations.map(v => ({
+    id: v.id,
+    impact: v.impact,
+    targets: v.nodes.map(n => n.target),
+  }))).toEqual([]);
+
+  await page.locator('.product-visual[data-id="SC-001"]').click();
+  const productDialog = await new AxeBuilder({ page }).withTags(tags).analyze();
+  expect(productDialog.violations.map(v => ({
+    id: v.id,
+    impact: v.impact,
+    targets: v.nodes.map(n => n.target),
+  }))).toEqual([]);
 });
 
 test('all published catalogue photographs load from the repository', async ({ page }) => {
