@@ -90,7 +90,7 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
   await expect(page.locator('#items')).not.toContainText('WORKING DESCRIPTOR');
   await page.locator('#bagClose').click();
   await expect(page.locator('#detailView')).toContainText('Front view');
-  await page.locator('#detailClose').click();
+  await expect(page.locator('#detail')).not.toBeVisible();
 });
 
 test('search and category filters update the collection', async ({ page }) => {
