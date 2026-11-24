@@ -38,6 +38,8 @@ assert.match(html, /id="drawer"[^>]*aria-hidden="true"[^>]*inert/, 'Selection dr
 assert.match(html, /id="bagOpen"[^>]*aria-controls="drawer"[^>]*aria-expanded="false"/, 'Selection trigger must expose its collapsed state.');
 assert.match(css, /:where\(a,button,input,\[tabindex\]\):focus-visible/, 'Visible keyboard focus styling is required.');
 assert.match(css, /prefers-reduced-motion:reduce/, 'Reduced-motion styling is required.');
+assert.match(js, /hasWorkingName=p=>p\.nameSource\?\.startsWith\('temporary visual descriptor'\)/, 'Temporary visual descriptors must be explicitly identified as unapproved.');
+assert.match(js, /name-status/, 'Temporary catalogue names must be labelled in customer-facing selection surfaces.');
 assert.match(js, /data-qty="increase"/, 'Enquiry selection must allow increasing item quantity.');
 assert.match(js, /data-qty="decrease"/, 'Enquiry selection must allow decreasing item quantity.');
 assert.match(js, /quantities\[id\]\|\|1/, 'Every selected item must retain a positive quantity.');
