@@ -71,6 +71,19 @@ test('all published catalogue photographs load from the repository', async ({ pa
   );
 });
 
+test('provisional catalogue entries and unapproved names are disclosed correctly', async ({ page }) => {
+  await expect(page.locator('.product-card')).toHaveCount(14);
+  await expect(page.locator('.product-card[data-id="SC-015"]')).toHaveCount(0);
+  const backView = page.locator('.product-card').filter({ has: page.locator('[data-id="SC-010"]') });
+  await expect(backView).toContainText('BACK VIEW');
+  await expect(backView).toContainText('Back view');
+  await expect(page.locator('.product-card').filter({ hasText: 'Yasmine' })).not.toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('.product-card').filter({ hasText: 'Turquoise Bloom' })).not.toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('.product-card').filter({ hasText: 'Lilac Border' })).not.toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('.product-card').filter({ hasText: 'Sage Lace' })).toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('WORKING DESCRIPTOR');
+});
+
 test('search and category filters update the collection', async ({ page }) => {
   await page.getByRole('button', { name: /Dark tones/ }).click();
   await expect(page.locator('.product-card')).toHaveCount(3);
