@@ -1,0 +1,190 @@
+{
+  "catalogueVersion": "2026-11-24-v1",
+  "status": "provisional-review-catalogue",
+  "imageAspectRatio": "3:4",
+  "pricing": "not-supplied",
+  "products": [
+    {
+      "id": "SC-001",
+      "label": "Piece 01",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8391.heic"
+      ],
+      "assets": [],
+      "notes": "Pink multi-colour embroidered abaya. Preserve embroidery density, lace scallops and beadwork."
+    },
+    {
+      "id": "SC-002",
+      "label": "Piece 02",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8811.heic"
+      ],
+      "assets": [],
+      "notes": "Mustard/yellow abaya with black-and-gold textured panel and rhinestone details."
+    },
+    {
+      "id": "SC-003",
+      "label": "Piece 03",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "neutral",
+      "source": [
+        "IMG_8888.heic"
+      ],
+      "crop": "left-garment",
+      "assets": [],
+      "notes": "Sage/mint lace embroidered abaya. Split from shared source photograph."
+    },
+    {
+      "id": "SC-004",
+      "label": "Piece 04",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8888.heic"
+      ],
+      "crop": "right-garment",
+      "assets": [],
+      "notes": "Dusty-pink lace embroidered abaya. Split from shared source photograph."
+    },
+    {
+      "id": "SC-005",
+      "label": "Piece 05",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8807.heic"
+      ],
+      "assets": [],
+      "notes": "Teal/mint abaya with floral-print sleeves and hijab."
+    },
+    {
+      "id": "SC-006",
+      "label": "Piece 06",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8241.heic"
+      ],
+      "assets": [],
+      "notes": "Turquoise abaya with purple/blue lace and beading."
+    },
+    {
+      "id": "SC-007",
+      "label": "Piece 07",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "dark",
+      "source": [
+        "IMG_8765.heic"
+      ],
+      "assets": [],
+      "notes": "Black abaya with cascading silver, gold and white feather/leaf embroidery."
+    },
+    {
+      "id": "SC-008",
+      "label": "Piece 08",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "neutral",
+      "source": [
+        "IMG_8268.heic"
+      ],
+      "assets": [],
+      "notes": "Beige/cream abaya with purple and gold lace."
+    },
+    {
+      "id": "SC-009",
+      "label": "Piece 09",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "dark",
+      "source": [
+        "IMG_8820.heic"
+      ],
+      "assets": [],
+      "notes": "Black abaya with black-and-white floral print."
+    },
+    {
+      "id": "SC-010",
+      "label": "Piece 10",
+      "status": "confirmed-incomplete-photography",
+      "view": "back",
+      "tone": "colour",
+      "source": [
+        "IMG_8253.heic"
+      ],
+      "assets": [],
+      "notes": "Mid-blue abaya. Back view only; obtain front view before presenting as a complete product gallery."
+    },
+    {
+      "id": "SC-011",
+      "label": "Piece 11",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8775.heic"
+      ],
+      "assets": [],
+      "notes": "Olive abaya with navy and gold sequined floral embroidery."
+    },
+    {
+      "id": "SC-012",
+      "label": "Piece 12",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "dark",
+      "source": [
+        "IMG_8277.heic"
+      ],
+      "assets": [],
+      "notes": "Black abaya with black-and-beige abstract lace pattern."
+    },
+    {
+      "id": "SC-013",
+      "label": "Piece 13",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "colour",
+      "source": [
+        "IMG_8830.heic"
+      ],
+      "assets": [],
+      "notes": "Rust/terracotta abaya with multi-colour print."
+    },
+    {
+      "id": "SC-014",
+      "label": "Piece 14",
+      "status": "confirmed",
+      "view": "front",
+      "tone": "neutral",
+      "source": [
+        "IMG_8783.heic"
+      ],
+      "assets": [],
+      "notes": "Beige abaya with gold/bronze sequined floral appliqués."
+    },
+    {
+      "id": "SC-015",
+      "label": "Unlisted provisional item",
+      "status": "provisional-unpublished",
+      "view": "back",
+      "tone": "colour",
+      "source": [
+        "IMG_8264.heic"
+      ],
+      "assets": [],
+      "notes": "Possible reverse of SC-004. Do not publish or count in collection until founder confirms whether it is a separate garment."
+    }
+  ]
+}
