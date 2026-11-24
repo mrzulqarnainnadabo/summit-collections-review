@@ -53,3 +53,10 @@ Do not treat the current branch as photo-complete or founder-preview-ready until
 - Keep non-legacy product descriptors visibly provisional until the founder approves official names.
 - Yasmine's ₦480,000 amount is a legacy record and must be reconfirmed before checkout or final publication.
 - Do not invent sizes, availability, stock levels or delivery claims.
+
+
+## Additional repository uploads reviewed on 24 November 2026
+
+Seven root-level PNG uploads, `IMG_3991.png` through `IMG_3997.png`, were inspected as visual references. They are screenshots of social-media posts and include interface chrome around the garment photographs. They are **not** clean source photographs and have not been mapped authoritatively to the 14 catalogue records.
+
+Do not substitute these screenshots for the prepared WebP derivatives, crop them into customer-facing product photography, or infer product names from them. The approved catalogue image set remains the 14 files in `summit-founder-review-assets.zip` listed above. The additional captures may be retained as reference material only.
