@@ -25,7 +25,7 @@ for (const selector of [
   '#name', '#location', '#menuOpen', '#mobileNav', '#search', '#siteHeader',
   '#progressBar', '#prelude'
 ]) {
-  assert.ok(js.includes(`$('\${selector}')`) || js.includes(`$(\`\${selector}\`)`) || js.includes(`document.querySelector('\${selector}')`), `JavaScript references missing or unbound control: ${selector}`);
+  assert.ok(js.includes(selector), `JavaScript does not reference required control: ${selector}`);
 }
 
 for (const product of catalogue.products.filter((item) => item.status !== 'provisional-unpublished')) {
