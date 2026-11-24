@@ -12,12 +12,12 @@ The provisional catalogue lives in `data/products.json`.
 
 ## Asset convention
 
-After the JPEG conversion and image review, save approved web images under:
+Approved web derivatives are referenced by the storefront at `/products/sc-001.webp` through `/products/sc-014.webp`. Keep the original JPEGs outside the deployable catalogue; the derivatives must preserve full garment framing and be committed before a preview is considered ready. Example paths:
 
 ```
-public/products/SC-001/primary.webp
-public/products/SC-001/detail-01.webp
-public/products/SC-002/primary.webp
+products/sc-001.webp
+products/sc-001-detail-01.webp
+products/sc-002.webp
 ...
 ```
 
