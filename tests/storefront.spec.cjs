@@ -139,7 +139,8 @@ test('WhatsApp enquiry opens with selected item and customer details', async ({ 
   const url = await page.evaluate(() => window.__openedWhatsApp);
   expect(url).toContain('wa.me/2347082812850');
   const message = decodeURIComponent(url.split('?text=')[1]);
-  expect(message).toContain('Mustard Noir');
+  expect(message).toContain('SC-002 — Mustard Noir');
+  expect(message).toContain('[TEMPORARY DESCRIPTOR]');
   expect(message).toContain('Test Customer');
   expect(message).toContain('Abuja');
 });
