@@ -1,36 +1,42 @@
-# The Summit Collections — storefront review
+# The Summit Collections — founder review storefront
 
-A responsive, mobile-first editorial storefront prototype for The Summit Collections, Abuja.
+A responsive editorial storefront for the founder's abaya collection. This project is developed separately from the original production website.
 
-## Brand rules
-- Preserve the supplied SC / The Summit Collections logo artwork exactly; do not redraw, recolour, simplify or replace it.
-- Keep the brand's gold, black and light neutral identity. The current site uses a restrained black, gold and warm-neutral interface.
-- The actual logo image still needs to be added as an original image asset before the final header/footer logo placement can be completed. Until then, the interface uses the brand name as text rather than a fabricated logo mark.
+## Brand direction
 
-## Responsive experience
-- Phone: compact navigation, two-column product browsing, stacked product details and full-width bag drawer.
-- Tablet: adjusted navigation, two-column product catalogue and balanced editorial sections.
-- Laptop/desktop: full navigation, editorial split hero and multi-column catalogue.
-- Supports reduced-motion preferences, visible keyboard focus and touch-friendly controls.
+- Preserve the supplied Summit Collections logo asset at `assets/summit-logo.webp`.
+- Use a restrained black, warm ivory, taupe and muted-gold palette.
+- Lead with the founder's actual garments and photography.
+- Keep the interface editorial, spacious and product-led rather than a generic ecommerce template.
 
-## Catalogue source and accuracy
-Product imagery is stored at the repository root and referenced by original filename. Product labels are descriptive unless a confirmed caption name exists.
+## Founder-supplied catalogue
 
-Important source limitations are preserved:
-- IMG_3977 is a profile overview, not a product.
-- IMG_3982 is an alternate view of the black floral abaya represented by IMG_3981.
-- IMG_3987 is an alternate view of the Yasmine pink border style represented by IMG_3988.
-- IMG_3993 is a group photograph, not an individually purchasable listing.
-- Prices/sizes not visible in the source remain enquiry-only.
-- Products marked sold or sizes marked unavailable are not represented as confirmed stock.
-- The founder has confirmed the ₦480,000 Yasmine is available; its listing is shown as available.
-- Other stock and size availability must be reconfirmed by the store before payment.
+The working catalogue is defined in `data/products.json`.
+
+- 14 confirmed product references are represented.
+- SC-003 and SC-004 are separate garments cropped from the shared IMG_8888 source.
+- SC-010 is explicitly labelled back-view-only.
+- SC-015 remains provisional and is excluded from the public collection.
+- No product names, prices, sizes, stock levels or product claims are invented.
+
+Approved image derivatives are referenced at `/products/sc-001.webp` through `/products/sc-014.webp`. The converted source JPEGs are retained separately; only carefully prepared derivatives should be committed to the storefront.
+
+## Experience
+
+- Editorial hero, brand story, collection browsing and location section.
+- Filters for neutral, dark and colour edits, plus search.
+- Product detail dialog and enquiry selection drawer.
+- WhatsApp enquiry handoff; the store confirms current price, size, availability and delivery directly.
+- Responsive navigation, reduced-motion support and scroll-based editorial details.
 
 ## Commerce boundary
-This is a front-end catalogue and WhatsApp-assisted ordering experience. It does not process payments, maintain live inventory, or provide a staff admin dashboard. The store confirms stock, size, final amount and delivery directly with the customer.
 
-## Local preview
-Open `index.html` in a static web server. No build step or package install is required.
+This is a catalogue and enquiry experience. It does not process payments or claim live inventory. All pricing, sizing and availability must be confirmed by the store.
 
-## Review state
-Work is on `feat/premium-storefront-v2` and is not merged into `main`. The original production website remains untouched. Netlify deployment and real-device/browser QA are still pending.
+## Development and release status
+
+- Active branch: `feat/founder-catalogue-foundation`.
+- The catalogue data and storefront rendering have been connected to the 14 confirmed product references.
+- The prepared WebP product image derivatives still need to be committed under `/products` before a founder-facing preview is considered ready.
+- Browser QA and a fresh Vercel preview are pending.
+- The original production site and `main` branch have not been changed by this work.
