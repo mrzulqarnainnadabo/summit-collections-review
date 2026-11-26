@@ -251,3 +251,9 @@ body{background:var(--paper);color:var(--ink)}
 .selection-drawer{transition:transform .4s var(--ease),visibility 0s linear .4s}
 .selection-drawer.show{transition-delay:0s,0s}
 @media(max-width:760px){.selection-drawer{transition:transform .4s var(--ease),visibility 0s linear .4s}.selection-drawer.show{transition-delay:0s,0s}}
+
+/* Mobile navigation becomes visible immediately before focus is moved into it. */
+@media(max-width:760px){
+ .mobile-nav{transition:opacity .25s,transform .25s,visibility 0s linear .25s}
+ .mobile-nav.open{transition-delay:0s,0s,0s}
+}
