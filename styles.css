@@ -241,3 +241,8 @@ body{background:var(--paper);color:var(--ink)}
 }
 @media(max-width:380px){.hero-title{font-size:72px}.product-meta h3{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.lookbook-track{scroll-behavior:auto;scroll-snap-type:none}}
+
+/* Keep closed overlays genuinely hidden in full-page captures and assistive technology. */
+.selection-drawer{visibility:hidden;pointer-events:none;transition:transform .4s var(--ease),visibility .4s}
+.selection-drawer.show{visibility:visible;pointer-events:auto}
+@media(max-width:760px){.selection-drawer{transition:transform .4s var(--ease),visibility .4s}}
