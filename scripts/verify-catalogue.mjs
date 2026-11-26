@@ -18,7 +18,12 @@ assert.equal(provisional[0].assets.length, 0, 'The provisional record must not h
 assert.equal(ids.size, products.length, 'Product IDs must be unique.');
 
 for (const product of published) {
-  assert.ok(product.assets?.length, `${product.id} must have an image path.`);\n  assert.equal(product.officialName, null, `${product.id} must not imply an unapproved official name.`);\n  assert.equal(product.verified, false, `${product.id} must remain founder-unverified.`);\n  assert.equal(product.sizes, null, `${product.id} must not invent size information.`);\n  assert.equal(product.availability, null, `${product.id} must not invent availability.`);\n  assert.equal(product.imageFit, 'contain', `${product.id} must preserve full garment framing.`);
+  assert.ok(product.assets?.length, `${product.id} must have an image path.`);
+  assert.equal(product.officialName, null, `${product.id} must not imply an unapproved official name.`);
+  assert.equal(product.verified, false, `${product.id} must remain founder-unverified.`);
+  assert.equal(product.sizes, null, `${product.id} must not invent size information.`);
+  assert.equal(product.availability, null, `${product.id} must not invent availability.`);
+  assert.equal(product.imageFit, 'contain', `${product.id} must preserve full garment framing.`);
   for (const asset of product.assets) {
     assert.match(asset, /^\/products\/sc-\d{3}\.webp$/, `${product.id} has an unexpected asset path: ${asset}`);
   }
