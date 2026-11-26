@@ -3,14 +3,17 @@ const AxeBuilder = require('@axe-core/playwright').default;
 
 const baseURL = 'http://127.0.0.1:4173';
 const widths = [
+  { name: 'mobile-360', width: 360, height: 800 },
   { name: 'mobile-390', width: 390, height: 844 },
-  { name: 'tablet-820', width: 820, height: 1180 },
+  { name: 'tablet-768', width: 768, height: 1024 },
+  { name: 'laptop-1024', width: 1024, height: 900 },
   { name: 'desktop-1440', width: 1440, height: 1000 },
 ];
 
 test.beforeEach(async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(baseURL, { waitUntil: 'networkidle' });
+  await expect(page.locator('#drawer')).toBeHidden();
   await expect(page.locator('.product-card')).toHaveCount(14);
 });
 
@@ -241,6 +244,27 @@ test('mobile navigation opens and closes accessibly', async ({ page }) => {
   await page.locator('#mobileNav a[href="#collection"]').click();
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#mobileNav')).toHaveAttribute('inert', '');
+});
+
+test('reduced motion keeps all content visible and avoids reveal delays', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.reload({ waitUntil: 'networkidle' });
+  await expect(page.locator('.product-card')).toHaveCount(14);
+  const states = await page.locator('.reveal, .reveal-image, .product-card').evaluateAll(nodes => nodes.map(node => ({
+    opacity: Number(getComputedStyle(node).opacity),
+    transform: getComputedStyle(node).transform,
+  })));
+  expect(states.every(state => state.opacity >= 0.99 && state.transform === 'none')).toBe(true);
+  await expect(page.locator('.lookbook-track')).toBeVisible();
+});
+
+test('page has no browser runtime or console errors', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+  await page.reload({ waitUntil: 'networkidle' });
+  await expect(page.locator('.product-card')).toHaveCount(14);
+  expect(errors).toEqual([]);
 });
 
 test('drawer traps focus and restores it to the opening control', async ({ page }) => {
