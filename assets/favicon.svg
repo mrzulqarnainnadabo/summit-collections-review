@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="2" fill="#171714"/>
+<path d="M12 17h40M12 47h40" stroke="#b7b39a" stroke-width="1"/>
+<text x="32" y="39" fill="#eeeae1" font-family="Georgia,serif" font-size="25" text-anchor="middle" letter-spacing="-2">SC</text>
+</svg>
