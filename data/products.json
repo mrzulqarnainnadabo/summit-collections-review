@@ -1,5 +1,5 @@
 {
-  "catalogueVersion": "2026-11-24-v1",
+  "catalogueVersion": "2026-11-26-v2",
   "status": "provisional-review-catalogue",
   "imageAspectRatio": "3:4",
   "pricing": "mixed: legacy-confirmed price for Yasmine; all other prices on enquiry",
@@ -24,7 +24,13 @@
       "priceSource": "Legacy project notes; previously confirmed by founder",
       "priceStatus": "legacy-confirmed",
       "priceNote": "Confirm current price with founder before checkout; this is the last recorded legacy price.",
-      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false
     },
     {
       "id": "SC-002",
@@ -40,7 +46,14 @@
       ],
       "notes": "Mustard/yellow abaya with black-and-gold textured panel and rhinestone details.",
       "name": "Mustard Noir",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-003",
@@ -58,7 +71,13 @@
       "notes": "Sage/mint lace embroidered abaya. Split from shared source photograph.",
       "imageFit": "contain",
       "name": "Sage Lace",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-004",
@@ -76,7 +95,13 @@
       "notes": "Dusty-pink lace embroidered abaya. Split from shared source photograph.",
       "imageFit": "contain",
       "name": "Dusty Rose Lace",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-005",
@@ -92,7 +117,14 @@
       ],
       "notes": "Teal/mint abaya with floral-print sleeves and hijab.",
       "name": "Teal Botanica",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-006",
@@ -109,7 +141,14 @@
       "notes": "Turquoise abaya with purple/blue lace and beading.",
       "name": "Turquoise Bloom",
       "legacyMatch": "Turquoise base with purple/blue floral border and lace",
-      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-007",
@@ -125,7 +164,14 @@
       ],
       "notes": "Black abaya with cascading silver, gold and white feather/leaf embroidery.",
       "name": "Midnight Cascade",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-008",
@@ -142,7 +188,14 @@
       "notes": "Beige/cream abaya with purple and gold lace.",
       "name": "Lilac Border",
       "legacyMatch": "Sand/beige base with lilac-purple border embroidery",
-      "nameSource": "legacy preview label matched by garment colour and distinctive detailing"
+      "nameSource": "legacy preview label matched by garment colour and distinctive detailing",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-009",
@@ -158,7 +211,14 @@
       ],
       "notes": "Black abaya with black-and-white floral print.",
       "name": "Monochrome Floral",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-010",
@@ -174,7 +234,14 @@
       ],
       "notes": "Mid-blue abaya. Back view only; obtain front view before presenting as a complete product gallery.",
       "name": "Blue Lace",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-011",
@@ -190,7 +257,14 @@
       ],
       "notes": "Olive abaya with navy and gold sequined floral embroidery.",
       "name": "Olive Bloom",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-012",
@@ -206,7 +280,14 @@
       ],
       "notes": "Black abaya with black-and-beige abstract lace pattern.",
       "name": "Black Textures",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-013",
@@ -222,7 +303,14 @@
       ],
       "notes": "Rust/terracotta abaya with multi-colour print.",
       "name": "Terracotta Botanica",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-014",
@@ -238,7 +326,14 @@
       ],
       "notes": "Beige abaya with gold/bronze sequined floral appliqués.",
       "name": "Gilded Ivory",
-      "nameSource": "temporary visual descriptor; not founder-approved official product name"
+      "nameSource": "temporary visual descriptor; not founder-approved official product name",
+      "imageFit": "contain",
+      "objectPosition": "center center",
+      "officialName": null,
+      "sizes": null,
+      "availability": null,
+      "verified": false,
+      "price": null
     },
     {
       "id": "SC-015",
@@ -252,5 +347,6 @@
       "assets": [],
       "notes": "Possible reverse of SC-004. Do not publish or count in collection until founder confirms whether it is a separate garment."
     }
-  ]
+  ],
+  "presentationNote": "Catalogue references are customer-facing identifiers until official product names and commercial details are confirmed by the founder. Visual tone groupings are provisional."
 }
