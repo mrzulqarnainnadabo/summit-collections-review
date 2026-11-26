@@ -7,7 +7,7 @@ const catalogue = JSON.parse(readFileSync(cataloguePath, 'utf8'));
 const products = catalogue.products;
 const published = products.filter((product) => product.status !== 'provisional-unpublished');
 const provisional = products.filter((product) => product.status === 'provisional-unpublished');
-const priced = products.filter((product) => product.price !== undefined);
+const priced = products.filter((product) => product.price !== undefined && product.price !== null);
 const ids = new Set(products.map((product) => product.id));
 
 assert.equal(published.length, 14, 'Expected exactly 14 catalogue entries for the review.');
@@ -18,7 +18,7 @@ assert.equal(provisional[0].assets.length, 0, 'The provisional record must not h
 assert.equal(ids.size, products.length, 'Product IDs must be unique.');
 
 for (const product of published) {
-  assert.ok(product.assets?.length, `${product.id} must have an image path.`);
+  assert.ok(product.assets?.length, `${product.id} must have an image path.`);\n  assert.equal(product.officialName, null, `${product.id} must not imply an unapproved official name.`);\n  assert.equal(product.verified, false, `${product.id} must remain founder-unverified.`);\n  assert.equal(product.sizes, null, `${product.id} must not invent size information.`);\n  assert.equal(product.availability, null, `${product.id} must not invent availability.`);\n  assert.equal(product.imageFit, 'contain', `${product.id} must preserve full garment framing.`);
   for (const asset of product.assets) {
     assert.match(asset, /^\/products\/sc-\d{3}\.webp$/, `${product.id} has an unexpected asset path: ${asset}`);
   }
