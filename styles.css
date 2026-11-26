@@ -257,3 +257,6 @@ body{background:var(--paper);color:var(--ink)}
  .mobile-nav{transition:opacity .25s,transform .25s,visibility 0s linear .25s}
  .mobile-nav.open{transition-delay:0s,0s,0s}
 }
+
+/* Preserve the official logo's native colour and internal detail on dark surfaces. */
+.brand img,.footer-brand img{filter:none;background:#eeeae1;border-radius:50%;padding:2px}
