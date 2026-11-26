@@ -241,9 +241,16 @@ test('mobile navigation opens and closes accessibly', async ({ page }) => {
   await trigger.click();
   await expect(trigger).toHaveAttribute('aria-expanded', 'true');
   await expect(page.locator('#mobileNav')).not.toHaveAttribute('inert', '');
-  await page.locator('#mobileNav a[href="#collection"]').click();
+  const links = page.locator('#mobileNav a[href]');
+  await expect(links.first()).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(links.last()).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(links.first()).toBeFocused();
+  await page.keyboard.press('Escape');
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#mobileNav')).toHaveAttribute('inert', '');
+  await expect(trigger).toBeFocused();
 });
 
 test('reduced motion keeps all content visible and avoids reveal delays', async ({ page }) => {
