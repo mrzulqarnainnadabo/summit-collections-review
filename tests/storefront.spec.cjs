@@ -76,18 +76,18 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
   await expect(page.locator('.product-card[data-id="SC-015"]')).toHaveCount(0);
   const backView = page.locator('.product-card').filter({ has: page.locator('[data-id="SC-010"]') });
   await expect(backView).toContainText('BACK VIEW');
-  await expect(backView).toContainText('Back view');
-  await expect(page.locator('.product-card').filter({ hasText: 'Yasmine' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
-  await expect(page.locator('.product-card').filter({ hasText: 'Turquoise Bloom' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
-  await expect(page.locator('.product-card').filter({ hasText: 'Lilac Border' })).not.toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
-  await expect(page.locator('.product-card').filter({ hasText: 'Sage Lace' })).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
-  await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
+  await expect(backView).toContainText('Back view only');
+  await expect(page.locator('.product-card').filter({ hasText: 'Yasmine' })).toContainText('FOUNDER CONFIRMATION PENDING');
+  await expect(page.locator('.product-card').filter({ hasText: 'Turquoise Bloom' })).toContainText('FOUNDER CONFIRMATION PENDING');
+  await expect(page.locator('.product-card').filter({ hasText: 'Lilac Border' })).toContainText('FOUNDER CONFIRMATION PENDING');
+  await expect(page.locator('.product-card').filter({ hasText: 'Sage Lace' })).toContainText('FOUNDER CONFIRMATION PENDING');
+  await expect(page.locator('.product-card').filter({ hasText: 'Gilded Ivory' })).toContainText('FOUNDER CONFIRMATION PENDING');
   await page.locator('.product-visual[data-id="SC-003"]').click();
-  await expect(page.locator('#detailView')).toContainText('Temporary descriptor · not founder-approved');
+  await expect(page.locator('#detailView')).toContainText('Visual reference · Sage Lace');
   await page.locator('#add').click();
   await expect(page.locator('#drawer')).toBeVisible();
-  await expect(page.locator('#items')).toContainText('TEMPORARY DESCRIPTOR · NOT FOUNDER-APPROVED');
-  await expect(page.locator('#items')).not.toContainText('WORKING DESCRIPTOR');
+  await expect(page.locator('#items')).toContainText('FOUNDER CONFIRMATION PENDING');
+  await expect(page.locator('#items')).toContainText('Catalogue 003');
   await page.locator('#bagClose').click();
   await expect(page.locator('#detailView')).toContainText('Front view');
   await expect(page.locator('#detail')).not.toBeVisible();
@@ -96,13 +96,13 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
 test('search and category filters update the collection', async ({ page }) => {
   await page.getByRole('button', { name: /Dark tones/ }).click();
   await expect(page.locator('.product-card')).toHaveCount(3);
-  await expect(page.locator('.product-card h3', { hasText: 'Midnight Cascade' })).toBeVisible();
+  await expect(page.locator('.product-card h3', { hasText: 'Catalogue 007' })).toBeVisible();
   await page.getByRole('button', { name: /All pieces/ }).click();
   await page.getByRole('searchbox', { name: 'Search collection' }).fill('Yasmine');
   await expect(page.locator('.product-card')).toHaveCount(1);
-  await expect(page.locator('.product-card h3')).toHaveText('Yasmine');
+  await expect(page.locator('.product-card h3')).toHaveText('Catalogue 001');
   await page.getByRole('searchbox', { name: 'Search collection' }).fill('no-such-piece');
-  await expect(page.getByText('No pieces match that search.', { exact: true })).toBeVisible();
+  await expect(page.getByText('No pieces found.', { exact: true })).toBeVisible();
 });
 
 test('empty enquiry bag guides visitors back to the collection and prevents an empty handoff', async ({ page }) => {
@@ -119,12 +119,12 @@ test('empty enquiry bag guides visitors back to the collection and prevents an e
 test('product details, enquiry selection and quantity controls work', async ({ page }) => {
   await page.locator('.product-visual[data-id="SC-001"]').click();
   await expect(page.locator('#detail')).toBeVisible();
-  await expect(page.locator('#detailTitle')).toHaveText('Yasmine');
+  await expect(page.locator('#detailTitle')).toHaveText('Catalogue 001');
   await expect(page.locator('#detailPrice')).toContainText('480,000');
   await page.locator('#size').fill('Size 56');
   await page.locator('#add').click();
   await expect(page.locator('#drawer')).toBeVisible();
-  await expect(page.locator('#items')).toContainText('Yasmine');
+  await expect(page.locator('#items')).toContainText('Catalogue 001');
   await expect(page.locator('#items')).toContainText('Size 56');
   await expect(page.locator('#items img')).toHaveAttribute('loading', 'lazy');
   await expect(page.locator('#items img')).toHaveAttribute('decoding', 'async');
@@ -150,8 +150,8 @@ test('WhatsApp enquiry opens with selected item and customer details', async ({ 
   const url = await page.evaluate(() => window.__openedWhatsApp);
   expect(url).toContain('wa.me/2347082812850');
   const message = decodeURIComponent(url.split('?text=')[1]);
-  expect(message).toContain('SC-002 — Mustard Noir');
-  expect(message).toContain('[TEMPORARY DESCRIPTOR]');
+  expect(message).toContain('SC-002 — Catalogue 002');
+  expect(message).toContain('[REFERENCE LABEL: Mustard Noir; NAME NOT FOUNDER-APPROVED]');
   expect(message).toContain('Test Customer');
   expect(message).toContain('Abuja');
 });
