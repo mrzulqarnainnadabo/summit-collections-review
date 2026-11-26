@@ -89,7 +89,7 @@ test('provisional catalogue entries and unapproved names are disclosed correctly
   await expect(page.locator('#detailView')).toContainText('Visual reference · Sage Lace');
   await page.locator('#add').click();
   await expect(page.locator('#drawer')).toBeVisible();
-  await expect(page.locator('#items')).toContainText('AWAITING FOUNDER CONFIRMATION');
+  await expect(page.locator('#items')).toContainText('FOUNDER CONFIRMATION PENDING');
   await expect(page.locator('#items')).toContainText('Catalogue 003');
   await page.locator('#bagClose').click();
   await expect(page.locator('#detailView')).toContainText('Front view');
