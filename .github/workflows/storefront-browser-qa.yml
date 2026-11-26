@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/founder-catalogue-foundation
+      - feat/summit-flagship-v3
   workflow_dispatch:
 
 permissions:
