@@ -36,7 +36,7 @@ assert.match(html, /property="og:title"/, 'Open Graph title metadata is required
 assert.match(html, /property="og:description"/, 'Open Graph description metadata is required.');
 assert.match(html, /name="twitter:card" content="summary_large_image"/, 'A large social sharing card must be declared.');
 assert.match(html, /property="og:image"/, 'A real catalogue photograph must be supplied for social sharing.');
-assert.match(html, /rel="preload" as="image" href="\/products\/sc-001\.webp" fetchpriority="high"/, 'The lead hero image must be preloaded at high priority.');
+assert.match(html, /rel="preload" as="image" href="\/products\/sc-007\.webp" fetchpriority="high"/, 'The lead hero image must be preloaded at high priority.');
 assert.match(js, /fetch\('\/data\/products\.json'\)/, 'Static catalogue data should use normal browser caching.');
 assert.doesNotMatch(js, /fetch\('\/data\/products\.json',\{cache:'no-store'\}\)/, 'Static catalogue data must not disable browser caching.');
 assert.match(html, /class="brand" href="#top" aria-label="The Summit Collections home"><img src="\/assets\/summit-logo\.webp" alt=""/, 'Header logo must not duplicate its accessible link name.');
