@@ -32,3 +32,16 @@ All 14 committed product derivatives are RGB WebP, 1,800px high. The documented 
 ## Founder photography requests
 
 Request a clean front and back view plus one close detail for each product, consistent lighting/background, and at least 2000px on the long edge. Request a separate editorial hero set and a store interior/exterior photograph if the founder wants a visit section with imagery.
+
+## Visual review notes from the browser captures
+
+The selected Dark Gallery layout has been reviewed in the 390px mobile and 1440px desktop browser captures. The garments remain fully framed in the catalogue cards and the enquiry detail view. The source photographs visibly include the current store/showroom environment, adjacent hanging garments, floor and display fixtures. These are genuine founder images and remain unchanged; the design does not attempt to disguise them with generated imagery or retouching.
+
+For a stronger final brand presentation, request a dedicated photography session:
+- One clean full-length front view for every piece, with the garment centred and the full hem visible
+- A matching back view and one close-up of fabric/embellishment for each piece
+- A consistent plain studio or uncluttered showroom background and consistent lighting
+- Editorial campaign photographs for the hero and brand-story sections
+- Original high-resolution files (at least 2000px on the long edge)
+
+Until those images are supplied, the site presents the existing catalogue photographs as-is and does not imply that missing views exist.
