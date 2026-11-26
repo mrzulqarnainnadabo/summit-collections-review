@@ -246,3 +246,8 @@ body{background:var(--paper);color:var(--ink)}
 .selection-drawer{visibility:hidden;pointer-events:none;transition:transform .4s var(--ease),visibility .4s}
 .selection-drawer.show{visibility:visible;pointer-events:auto}
 @media(max-width:760px){.selection-drawer{transition:transform .4s var(--ease),visibility .4s}}
+
+/* Make the drawer focusable immediately on open; delay only its hidden state on close. */
+.selection-drawer{transition:transform .4s var(--ease),visibility 0s linear .4s}
+.selection-drawer.show{transition-delay:0s,0s}
+@media(max-width:760px){.selection-drawer{transition:transform .4s var(--ease),visibility 0s linear .4s}.selection-drawer.show{transition-delay:0s,0s}}
